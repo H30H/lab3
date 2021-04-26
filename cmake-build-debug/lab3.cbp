@@ -83,6 +83,12 @@
 		<Unit filename="/cygdrive/c/cc++ labs/lab3/main.cpp">
 			<Option target="lab3"/>
 		</Unit>
+		<Unit filename="/cygdrive/c/cc++ labs/lab3/myBinaryTree.cpp">
+			<Option target="lab3"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/cc++ labs/lab3/myBinaryTree.h">
+			<Option target="lab3"/>
+		</Unit>
 		<Unit filename="/cygdrive/c/cc++ labs/lab3/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

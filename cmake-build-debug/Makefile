@@ -169,6 +169,33 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+myBinaryTree.o: myBinaryTree.cpp.o
+
+.PHONY : myBinaryTree.o
+
+# target to build an object file
+myBinaryTree.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/myBinaryTree.cpp.o
+.PHONY : myBinaryTree.cpp.o
+
+myBinaryTree.i: myBinaryTree.cpp.i
+
+.PHONY : myBinaryTree.i
+
+# target to preprocess a source file
+myBinaryTree.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/myBinaryTree.cpp.i
+.PHONY : myBinaryTree.cpp.i
+
+myBinaryTree.s: myBinaryTree.cpp.s
+
+.PHONY : myBinaryTree.s
+
+# target to generate assembly for a file
+myBinaryTree.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/myBinaryTree.cpp.s
+.PHONY : myBinaryTree.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -181,6 +208,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... myBinaryTree.o"
+	@echo "... myBinaryTree.i"
+	@echo "... myBinaryTree.s"
 .PHONY : help
 
 

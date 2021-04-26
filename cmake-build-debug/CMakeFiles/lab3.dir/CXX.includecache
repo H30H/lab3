@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/cygdrive/c/cc++ labs/lab3/main.cpp
+myBinaryTree.h
+/cygdrive/c/cc++ labs/lab3/myBinaryTree.h
+iostream
+-
+
+/cygdrive/c/cc++ labs/lab3/myBinaryTree.cpp
+myBinaryTree.h
+/cygdrive/c/cc++ labs/lab3/myBinaryTree.h
+
+/cygdrive/c/cc++ labs/lab3/myBinaryTree.h
+iostream
+-
+
