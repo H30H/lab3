@@ -196,6 +196,60 @@ myBinaryTree.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/myBinaryTree.cpp.s
 .PHONY : myBinaryTree.cpp.s
 
+myLinkedList.o: myLinkedList.cpp.o
+
+.PHONY : myLinkedList.o
+
+# target to build an object file
+myLinkedList.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/myLinkedList.cpp.o
+.PHONY : myLinkedList.cpp.o
+
+myLinkedList.i: myLinkedList.cpp.i
+
+.PHONY : myLinkedList.i
+
+# target to preprocess a source file
+myLinkedList.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/myLinkedList.cpp.i
+.PHONY : myLinkedList.cpp.i
+
+myLinkedList.s: myLinkedList.cpp.s
+
+.PHONY : myLinkedList.s
+
+# target to generate assembly for a file
+myLinkedList.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/myLinkedList.cpp.s
+.PHONY : myLinkedList.cpp.s
+
+myStack.o: myStack.cpp.o
+
+.PHONY : myStack.o
+
+# target to build an object file
+myStack.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/myStack.cpp.o
+.PHONY : myStack.cpp.o
+
+myStack.i: myStack.cpp.i
+
+.PHONY : myStack.i
+
+# target to preprocess a source file
+myStack.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/myStack.cpp.i
+.PHONY : myStack.cpp.i
+
+myStack.s: myStack.cpp.s
+
+.PHONY : myStack.s
+
+# target to generate assembly for a file
+myStack.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/myStack.cpp.s
+.PHONY : myStack.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -211,6 +265,12 @@ help:
 	@echo "... myBinaryTree.o"
 	@echo "... myBinaryTree.i"
 	@echo "... myBinaryTree.s"
+	@echo "... myLinkedList.o"
+	@echo "... myLinkedList.i"
+	@echo "... myLinkedList.s"
+	@echo "... myStack.o"
+	@echo "... myStack.i"
+	@echo "... myStack.s"
 .PHONY : help
 
 
