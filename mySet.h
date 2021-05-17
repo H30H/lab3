@@ -6,6 +6,7 @@
 #define LAB3_MYSET_H
 
 #include "myBinaryTree.h"
+#include "myArraySequence.h"
 
 template <class T>
 class mySet {
