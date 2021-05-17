@@ -95,6 +95,12 @@
 		<Unit filename="/cygdrive/c/cc++ labs/lab3/myLinkedList.h">
 			<Option target="lab3"/>
 		</Unit>
+		<Unit filename="/cygdrive/c/cc++ labs/lab3/mySet.cpp">
+			<Option target="lab3"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/cc++ labs/lab3/mySet.h">
+			<Option target="lab3"/>
+		</Unit>
 		<Unit filename="/cygdrive/c/cc++ labs/lab3/myStack.cpp">
 			<Option target="lab3"/>
 		</Unit>

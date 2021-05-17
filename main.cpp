@@ -1,6 +1,28 @@
 #include "myBinaryTree.h"
 
 #include <iostream>
+#include <ctime>
+
+void func1(std::string str1) {
+    char c;
+    for (int i = 0; i < str1.length(); i++) {
+        c = str1[i];
+    }
+}
+
+void func2(const std::string& str1) {
+    char c;
+    for (int i = 0; i < str1.length(); i++) {
+        c = str1[i];
+    }
+}
+
+void func3(std::string* str1) {
+    char c;
+    for (int i = 0; i < str1->length(); i++) {
+        c = (*str1)[i];
+    }
+}
 
 using namespace std;
 int main() {
@@ -16,9 +38,10 @@ int main() {
             tree.insert(data, key);
         else
             tree.remove(key);
-        tree.printAll2();
-        cout << endl;
+        //tree.printAll2();
+        cout << tree.getStr(string("LK, R"), string("K")) << endl;
     }
+
 
     return 0;
 }

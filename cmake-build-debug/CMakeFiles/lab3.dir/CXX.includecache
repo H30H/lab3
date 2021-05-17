@@ -11,6 +11,8 @@ myBinaryTree.h
 /cygdrive/c/cc++ labs/lab3/myBinaryTree.h
 iostream
 -
+ctime
+-
 
 /cygdrive/c/cc++ labs/lab3/myBinaryTree.cpp
 myBinaryTree.h
@@ -31,6 +33,14 @@ cstdlib
 /cygdrive/c/cc++ labs/lab3/cstdlib
 iostream
 -
+
+/cygdrive/c/cc++ labs/lab3/mySet.cpp
+mySet.h
+/cygdrive/c/cc++ labs/lab3/mySet.h
+
+/cygdrive/c/cc++ labs/lab3/mySet.h
+myBinaryTree.h
+/cygdrive/c/cc++ labs/lab3/myBinaryTree.h
 
 /cygdrive/c/cc++ labs/lab3/myStack.h
 myLinkedList.cpp

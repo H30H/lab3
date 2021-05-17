@@ -93,10 +93,110 @@ public:
     };
 
 private:
-
     branch<T, K> *head;
 
+    ///Функции для работы преобразования в строку
+
+    std::string strFromQueue(int* queue, int num, std::string Start, std::string First,
+                             std::string Second, std::string End, std::string typePrint) {
+        int ind1 = 0, ind2 = 0;
+        switch (queue[num]) {
+            default: return std::string();
+            case 0:
+                return myBinaryTree<T, K>(head->left).strSplited(queue, Start, First, Second, End, typePrint);
+
+            case 1:
+                ind1 = (int) typePrint.find('K');
+                ind2 = (int) typePrint.find('D');
+
+                if (ind1 > typePrint.length() && ind2 > typePrint.length())
+                    return std::string();
+
+                if (ind1 > typePrint.length())
+                    return std::to_string(head->data);
+
+                if (ind2 > typePrint.length())
+                    return std::to_string(head->key);
+
+                if (ind1 <= typePrint.length() && ind2 <= typePrint.length())
+                    return std::string("\"") + std::to_string(head->key) + ", " + std::to_string(head->data) + "\"";
+
+            case 2:
+                return myBinaryTree<T, K>(head->right).strSplited(queue, Start, First, Second, End, typePrint);
+        }
+        return std::string();
+    }
+
+    std::string strSplited(int* queue, std::string Start, std::string First,
+                           std::string Second, std::string End, std::string typePrint) {
+        if (head == nullptr) {
+            return std::string();
+        }
+
+        std::string res = Start;
+        res += strFromQueue(queue, 0, Start, First, Second, End, typePrint);
+        res += First;
+        res += strFromQueue(queue, 1, Start, First, Second, End, typePrint);
+        res += Second;
+        res += strFromQueue(queue, 2, Start, First, Second, End, typePrint);
+        res += End;
+
+        return res;
+    }
+
+    void strGetKeys(const std::string &str, int* queue, int* key, std::string* keys,
+                    std::string &Start, std::string &First, std::string &Second, std::string &End) {
+        key[0] = str.find(keys[0]);
+        key[1] = str.find(keys[1]);
+        key[2] = str.find(keys[2]);
+
+        if (key[0] > str.length() || key[1] > str.length() || key[2] > str.length())
+            return;
+
+        if (key[0] < key[1] && key[1] < key[2]) {
+            queue[0] = 0; queue[1] = 1; queue[2] = 2;
+        }
+        else if (key[0] < key[2] && key[2] < key[1]) {
+            queue[0] = 0; queue[1] = 2; queue[2] = 1;
+            int swap = key[1]; key[1] = key[2]; key[2] = swap;
+        }
+        else if (key[1] < key[0] && key[0] < key[2]) {
+            queue[0] = 1; queue[1] = 0; queue[2] = 2;
+            int swap = key[0]; key[0] = key[1]; key[1] = swap;
+        }
+        else if (key[1] < key[2] && key[2] < key[0]) {
+            queue[0] = 1; queue[1] = 2; queue[2] = 0;
+            int swap = key[0]; key[0] = key[1]; key[1] = key[2]; key[2] = swap;
+        }
+        else if (key[2] < key[0] && key[0] < key[1]) {
+            queue[0] = 2; queue[1] = 0; queue[2] = 1;
+            int swap = key[0]; key[0] = key[2]; key[2] = key[1]; key[1] = swap;
+        }
+        else if (key[2] < key[1] && key[1] < key[0]){
+            queue[0] = 2; queue[1] = 1; queue[2] = 0;
+            int swap = key[0]; key[0] = key[2]; key[2] = swap;
+        }
+
+        Start  = str.substr(0, key[0]);
+        First  = str.substr(key[0] + keys[queue[0]].length(), key[1] - key[0] - keys[queue[0]].length());
+        Second = str.substr(key[1] + keys[queue[1]].length(), key[2] - key[1] - keys[queue[1]].length());
+        End    = str.substr(key[2] + keys[queue[2]].length(), str.length() - key[2] - keys[queue[2]].length());
+    }
+
+    ///Функции для работы операции приравнивания
+
+    void toOperatorEqual(branch<T, K>* treeFrom) {
+        if (!treeFrom)
+            return;
+
+        insert(treeFrom->data, treeFrom->key);
+
+        toOperatorEqual(treeFrom->left);
+        toOperatorEqual(treeFrom->right);
+    }
 public:
+    friend class std::basic_ostream<char>;
+
     myBinaryTree(): head(nullptr) {}
 
     myBinaryTree(branch<T, K> *element): head(element) {}
@@ -219,7 +319,7 @@ public:
         if (head->left != nullptr && head->right != nullptr) {
             auto h1 = head->left->height;
             auto h2 = head->right->height;
-            if (h1 > h2) {  ///реализовать стек и выполнить удаление через
+            if (h1 > h2) {
                 myStack<branch<T, K>*> stack;
                 branch<T, K> *br, *last = nullptr;
                 for (br = head->left; br->right != nullptr; br = br->right) {
@@ -290,6 +390,7 @@ public:
         return this;
     }
 
+
     void print() {
         if (head == nullptr) return;
         std::cout << '{';
@@ -301,8 +402,28 @@ public:
         std::cout << ']';
     }
 
-    void print(const std::string& str) {
-        std::string res;
+    std::string getStr(const std::string& str) {
+        std::string typePrint("KD");
+        return getStr(str, typePrint);
+    }
+
+    std::string getStr(const std::string& str, const std::string& typePrint) {
+        int queue[] = {-1, -1, -1};
+        int key[3];
+        for (auto &i : key) {
+            i = str.length() + 1;
+        }
+        std::string Start, First, Second, End;
+
+        std::string keys[] = {std::string("L"), std::string("K"), std::string("R")};
+
+        strGetKeys(str, queue, key, keys, Start, First, Second, End);
+
+        return strSplited(queue, Start, First, Second, End, typePrint);
+    }
+
+    std::string getKeyStr() {
+        return std::string();
     }
 
     void printAll() {
@@ -337,7 +458,11 @@ public:
         myBinaryTree<T, K>(head->left).printAll2(count + 1, 1);
         myBinaryTree<T, K>(head->right).printAll2(count + 1, 2);
     }
-};
 
+    myBinaryTree<T, K>& operator = (const myBinaryTree<T, K>& binaryTree) {
+        Delete();
+        toOperatorEqual(binaryTree.head);
+    }
+};
 
 #endif //LAB3_MYBINARYTREE_H

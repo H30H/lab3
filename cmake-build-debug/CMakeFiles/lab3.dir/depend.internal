@@ -16,6 +16,13 @@ CMakeFiles/lab3.dir/myBinaryTree.cpp.o
 CMakeFiles/lab3.dir/myLinkedList.cpp.o
  /cygdrive/c/cc++ labs/lab3/myLinkedList.cpp
  /cygdrive/c/cc++ labs/lab3/myLinkedList.h
+CMakeFiles/lab3.dir/mySet.cpp.o
+ /cygdrive/c/cc++ labs/lab3/myBinaryTree.h
+ /cygdrive/c/cc++ labs/lab3/myLinkedList.cpp
+ /cygdrive/c/cc++ labs/lab3/myLinkedList.h
+ /cygdrive/c/cc++ labs/lab3/mySet.cpp
+ /cygdrive/c/cc++ labs/lab3/mySet.h
+ /cygdrive/c/cc++ labs/lab3/myStack.h
 CMakeFiles/lab3.dir/myStack.cpp.o
  /cygdrive/c/cc++ labs/lab3/myLinkedList.cpp
  /cygdrive/c/cc++ labs/lab3/myLinkedList.h
