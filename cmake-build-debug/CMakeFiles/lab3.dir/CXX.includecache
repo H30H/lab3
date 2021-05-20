@@ -14,6 +14,10 @@ iostream
 ctime
 -
 
+/cygdrive/c/cc++ labs/lab3/myArraySequence.h
+myDynamicArray.cpp
+/cygdrive/c/cc++ labs/lab3/myDynamicArray.cpp
+
 /cygdrive/c/cc++ labs/lab3/myBinaryTree.cpp
 myBinaryTree.h
 /cygdrive/c/cc++ labs/lab3/myBinaryTree.h
@@ -21,6 +25,22 @@ myBinaryTree.h
 /cygdrive/c/cc++ labs/lab3/myBinaryTree.h
 myStack.h
 /cygdrive/c/cc++ labs/lab3/myStack.h
+myQueue.h
+/cygdrive/c/cc++ labs/lab3/myQueue.h
+myArraySequence.h
+/cygdrive/c/cc++ labs/lab3/myArraySequence.h
+iostream
+-
+
+/cygdrive/c/cc++ labs/lab3/myDynamicArray.cpp
+myDynamicArray.h
+/cygdrive/c/cc++ labs/lab3/myDynamicArray.h
+
+/cygdrive/c/cc++ labs/lab3/myDynamicArray.h
+cstring
+/cygdrive/c/cc++ labs/lab3/cstring
+string
+-
 iostream
 -
 
@@ -34,6 +54,10 @@ cstdlib
 iostream
 -
 
+/cygdrive/c/cc++ labs/lab3/myQueue.h
+myLinkedList.h
+/cygdrive/c/cc++ labs/lab3/myLinkedList.h
+
 /cygdrive/c/cc++ labs/lab3/mySet.cpp
 mySet.h
 /cygdrive/c/cc++ labs/lab3/mySet.h
@@ -41,6 +65,8 @@ mySet.h
 /cygdrive/c/cc++ labs/lab3/mySet.h
 myBinaryTree.h
 /cygdrive/c/cc++ labs/lab3/myBinaryTree.h
+myArraySequence.h
+/cygdrive/c/cc++ labs/lab3/myArraySequence.h
 
 /cygdrive/c/cc++ labs/lab3/myStack.h
 myLinkedList.cpp

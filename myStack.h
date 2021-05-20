@@ -12,9 +12,7 @@ class myStack {
 private:
     myLinkedList<T> elements;
 public:
-    class IndexOutOfRange: public myLinkedList<T>::IndexOutOfRange {
-
-    };
+    class IndexOutOfRange {};
 
     myStack() = default;
 
@@ -22,8 +20,18 @@ public:
 
     explicit myStack(myLinkedList<T> *list): elements(*list) {}
 
+    myStack(T* elements, int count) {
+        for (int i = 0; i < count; i++) {
+            add(elements[i]);
+        }
+    }
+
     void add(T element) {
         elements.prepend(element);
+    }
+
+    void add(const myStack<T>& stack) {
+        elements = stack.elements.concat_(&elements);
     }
 
     T get() {

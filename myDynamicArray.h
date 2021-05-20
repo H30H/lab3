@@ -12,7 +12,7 @@ template <class T>
 class myDynamicArray {
 private:
     T *arr;                           //массив элементов, с которыми работает пользователь
-    int len;                          //длина массива (количество элементов, достуных пользователю), //TODO поменять на length
+    int len;                          //длина массива (количество элементов, достуных пользователю)
     int size;                         //количество элементов, под которые выделена память
     const size_t elSize = sizeof(T);
 public:
@@ -242,8 +242,7 @@ public:
 };
 
 template<class T>
-std::ostream &operator << (std::ostream &cout, myDynamicArray<T> &dynamicArray) {
-    //cout << dynamicArray.length() << ' ';
+std::ostream &operator << (std::ostream &cout, const myDynamicArray<T> &dynamicArray) {
     cout << '{';
     for (int i = 0; i < dynamicArray.length(); i++) {
         cout << dynamicArray[i];

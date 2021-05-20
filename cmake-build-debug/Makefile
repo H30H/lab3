@@ -223,6 +223,33 @@ myLinkedList.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/myLinkedList.cpp.s
 .PHONY : myLinkedList.cpp.s
 
+myQueue.o: myQueue.cpp.o
+
+.PHONY : myQueue.o
+
+# target to build an object file
+myQueue.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/myQueue.cpp.o
+.PHONY : myQueue.cpp.o
+
+myQueue.i: myQueue.cpp.i
+
+.PHONY : myQueue.i
+
+# target to preprocess a source file
+myQueue.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/myQueue.cpp.i
+.PHONY : myQueue.cpp.i
+
+myQueue.s: myQueue.cpp.s
+
+.PHONY : myQueue.s
+
+# target to generate assembly for a file
+myQueue.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/myQueue.cpp.s
+.PHONY : myQueue.cpp.s
+
 mySet.o: mySet.cpp.o
 
 .PHONY : mySet.o
@@ -295,6 +322,9 @@ help:
 	@echo "... myLinkedList.o"
 	@echo "... myLinkedList.i"
 	@echo "... myLinkedList.s"
+	@echo "... myQueue.o"
+	@echo "... myQueue.i"
+	@echo "... myQueue.s"
 	@echo "... mySet.o"
 	@echo "... mySet.i"
 	@echo "... mySet.s"

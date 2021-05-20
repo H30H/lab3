@@ -6,6 +6,8 @@
 #define LAB3_MYBINARYTREE_H
 
 #include "myStack.h"
+#include "myQueue.h"
+#include "myArraySequence.h"
 
 #include <iostream>
 
@@ -92,6 +94,9 @@ public:
         explicit InvalidKeyword(K key): key(key) {}
     };
 
+    class IsEmpty{
+
+    };
 private:
     branch<T, K> *head;
 
@@ -185,14 +190,36 @@ private:
 
     ///Функции для работы операции приравнивания
 
-    void toOperatorEqual(branch<T, K>* treeFrom) {
-        if (!treeFrom)
-            return;
+    ///Функции для работы получение ключей и значений в дереве
 
-        insert(treeFrom->data, treeFrom->key);
+    myArraySequence<T>* getValues(branch<T, K>* branch) {
+        if (!branch) {
+            return new myArraySequence<T>;
+        }
 
-        toOperatorEqual(treeFrom->left);
-        toOperatorEqual(treeFrom->right);
+        myArraySequence<T>* res1 = getValues(branch->left);
+        myArraySequence<T>* res2 = getValues(branch->right);
+
+        res1->append(branch->data);
+        res1->concat(res2);
+
+        delete res2;
+        return res1;
+    }
+
+    myArraySequence<K>* getKeys(branch<T, K>* branch) {
+        if (!branch) {
+            return new myArraySequence<K>;
+        }
+
+        myArraySequence<K>* res1 = getKeys(branch->left);
+        myArraySequence<K>* res2 = getKeys(branch->right);
+
+        res1->append(branch->key);
+        res1->concat(res2);
+
+        delete res2;
+        return res1;
     }
 public:
     friend class std::basic_ostream<char>;
@@ -213,9 +240,10 @@ public:
     }
 
     myBinaryTree(K key, T data) {
-        auto res = new branch<T, K>;
+        auto *res = new branch<T, K>;
         res->key = key;
         res->data = data;
+        head = res;
     }
 
     T find(K key) {
@@ -258,27 +286,6 @@ public:
             head->height = maxVal + 1;
             return this;
         }
-        /*
-        if (delta < -1) {
-
-            branch *headNew = head->left;
-            branch *swapped = headNew->right;
-            headNew->right = head;
-            head->left = swapped;
-            leftVal = head->left == nullptr ? 0 : head->left->height;
-            head->height =(rightVal > leftVal ? rightVal : leftVal) + 1;
-            head = headNew;
-
-        }
-        else {
-            branch *headNew = head->right;
-            branch *swapped = headNew->left;
-            headNew->left = head;
-            head->right = swapped;
-            rightVal = head->right == nullptr ? 0 : head->right->height;
-            head->height = (rightVal > leftVal ? rightVal : leftVal) + 1;
-            head = headNew;
-        }*/
         head = head->balance();
 
         return this;
@@ -390,7 +397,6 @@ public:
         return this;
     }
 
-
     void print() {
         if (head == nullptr) return;
         std::cout << '{';
@@ -461,7 +467,131 @@ public:
 
     myBinaryTree<T, K>& operator = (const myBinaryTree<T, K>& binaryTree) {
         Delete();
-        toOperatorEqual(binaryTree.head);
+        //toOperatorEqual(binaryTree.head);
+        if (binaryTree.head == nullptr)
+            return *this;
+
+        myQueue<branch<T, K>*> queue(head);
+
+        while(queue.length() != 0) {
+            auto branchRes = queue.get();
+            insert(branchRes->data, branchRes->key);
+            if (branchRes->left != nullptr)
+                queue.add(branchRes->left);
+
+            if (branchRes->right != nullptr)
+                queue.add(branchRes->right);
+        }
+
+        return *this;
+    }
+
+    int equal(const myBinaryTree<T, K>& binaryTree) {
+        if (head == binaryTree.head)
+            return 1;
+
+        if (head == nullptr || binaryTree.head == nullptr)
+            return 0;
+
+        if (head->key != binaryTree.head->key || head->data != binaryTree.head->data)
+            return 0;
+
+        if (!(myBinaryTree<T, K>(head->left).equal(myBinaryTree<T, K>(binaryTree.head->left))))
+            return 0;
+
+        if (!(myBinaryTree<T, K>(head->right).equal(myBinaryTree<T, K>(binaryTree.head->right))))
+            return 0;
+
+        return 1;
+    }
+
+    int operator == (const myBinaryTree<T, K>& binaryTree) {
+        return equal(binaryTree);
+    }
+
+    int operator != (const myBinaryTree<T, K>& binaryTree) {
+        return !equal(binaryTree);
+    }
+
+    myArraySequence<T>* getValues() {
+        return getValues(head);
+    }
+
+    myArraySequence<T>* getKeys() {
+        return getKeys(head);
+    }
+
+    void map(T (*f)()) {
+        if (!head)
+            return;
+
+        head->data = f();
+        myBinaryTree<T, K>(head->left).map(f);
+        myBinaryTree<T, K>(head->right).map(f);
+    }
+
+    void map(T (*f)(T value)) {
+        if (!head)
+            return;
+
+        head->data = f(head->data);
+        myBinaryTree<T, K>(head->left).map(f);
+        myBinaryTree<T, K>(head->right).map(f);
+    }
+
+    T reduce(T (*f)(T res, T value), T start) {
+        if (!head)
+            return start;
+
+        T res = start;
+
+        auto *data = getValues();
+
+        for (int i = 0; i < data->length(); i++) {
+            res = f(res, data->get(i));
+        }
+
+        return res;
+    }
+
+    myBinaryTree<T, K>* getSubTree(K key) {
+        if (head == nullptr)
+            return new myBinaryTree<T, K>;
+
+        if (head->key == key) {
+            auto *res = new myBinaryTree<T, K>;
+            *res = myBinaryTree<T, K>(head);
+            return res;
+        }
+    }
+
+    int inTree(K key) {
+        auto* arr = getKeys();
+        int k = arr->find(key);
+        delete arr;
+        return k != -1;
+    }
+
+    int inTree(const myBinaryTree<T, K>& binaryTree) {
+        if (binaryTree.head == nullptr)
+            return 1;
+
+        if (head == binaryTree.head)
+            return 1;
+
+        if (head == nullptr)
+            return 0;
+
+        if (head->key == binaryTree.head->key) {
+            return equal(binaryTree);
+        }
+
+        if (binaryTree.head->key < head->key) {
+            return inTree(myBinaryTree<T, K>(head->left), binaryTree);
+        }
+        else {
+            return inTree(myBinaryTree<T, K>(head->right), binaryTree);
+        }
     }
 };
 

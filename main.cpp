@@ -40,6 +40,7 @@ int main() {
             tree.remove(key);
         //tree.printAll2();
         cout << tree.getStr(string("LK, R"), string("K")) << endl;
+        cout << tree.getKeys() << endl;
     }
 
 

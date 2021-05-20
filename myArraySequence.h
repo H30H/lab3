@@ -5,8 +5,7 @@
 #ifndef LAB2_MYARRAYSEQUENCE_H
 #define LAB2_MYARRAYSEQUENCE_H
 
-#include "mySequence.h"
-#include "myDynamicArray.h"
+#include "myDynamicArray.cpp"
 
 template<class T>
 class myArraySequence {
@@ -203,7 +202,7 @@ public:
         dynamicArray[index] = *item;*/
     }
 
-    myArraySequence<T> *concat(mySequence<T> *sequence) {
+    myArraySequence<T> *concat(myArraySequence<T> *sequence) {
         int start = dynamicArray.length();
         dynamicArray.resize(start + sequence->length());
 
@@ -214,7 +213,7 @@ public:
         return this;
     }
 
-    myArraySequence<T> *concat_(mySequence<T>* sequence) {
+    myArraySequence<T> *concat_(myArraySequence<T>* sequence) {
         auto *newArray = new myArraySequence<T>();
         newArray->dynamicArray = dynamicArray;
 
@@ -227,11 +226,11 @@ public:
         return newArray;
     }
 
-    myArraySequence<T> *operator + (mySequence<T>* sequence) {
+    myArraySequence<T> *operator + (myArraySequence<T>* sequence) {
         return concat_(sequence);
     }
 
-    myArraySequence<T> *operator += (mySequence<T> *sequence) {
+    myArraySequence<T> *operator += (myArraySequence<T> *sequence) {
         concat(sequence);
         return this;
     }
@@ -309,7 +308,7 @@ public:
         return dynamicArray.find(item);
     }
 
-    int find(mySequence<T> *sequence) {
+    int find(myArraySequence<T> *sequence) {
         myDynamicArray<T> array;
         array.resize(sequence->length());
         for (int i = 0; i < array.length(); i++) {
@@ -323,7 +322,7 @@ template<class T>
 std::ostream &operator << (std::ostream &cout, myArraySequence<T> &arraySequence) {
     cout << '{';
     for (int i = 0; i < arraySequence.length(); i++) {
-        cout << arraySequence.dynamicArray[i];
+        cout << arraySequence[i];
         if (i != arraySequence.length() - 1) {
             cout << ", ";
         }
@@ -334,7 +333,7 @@ std::ostream &operator << (std::ostream &cout, myArraySequence<T> &arraySequence
 
 template<class T>
 std::ostream &operator << (std::ostream &cout, myArraySequence<T> *arraySequence) {
-    return cout << arraySequence[0];
+    return cout << *arraySequence;
 }
 
 #endif //LAB2_MYARRAYSEQUENCE_H
