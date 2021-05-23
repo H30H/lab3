@@ -67,7 +67,7 @@ int main() {
 
     cout << set1 << endl << set2 << endl;
     cout << set1 + set2 << endl;
-    //cout << set1 * set2 << endl;
+    cout << set1 * set2 << endl;
     cout << set1 - set2 << endl;
     return 0;
 }

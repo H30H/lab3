@@ -172,6 +172,8 @@ public:
 
         delete keys1;
         delete keys2;
+
+        return *this;
     }
 
     mySet<T> sub(const mySet<T>& set) {
