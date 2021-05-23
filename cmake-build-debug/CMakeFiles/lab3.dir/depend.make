@@ -9,6 +9,7 @@ CMakeFiles/lab3.dir/main.cpp.o: ../myDynamicArray.h
 CMakeFiles/lab3.dir/main.cpp.o: ../myLinkedList.cpp
 CMakeFiles/lab3.dir/main.cpp.o: ../myLinkedList.h
 CMakeFiles/lab3.dir/main.cpp.o: ../myQueue.h
+CMakeFiles/lab3.dir/main.cpp.o: ../mySet.h
 CMakeFiles/lab3.dir/main.cpp.o: ../myStack.h
 
 CMakeFiles/lab3.dir/myBinaryTree.cpp.o: ../myArraySequence.h

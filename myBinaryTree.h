@@ -193,7 +193,7 @@ private:
 
     ///Функции для работы получение ключей и значений в дереве
 
-    myArraySequence<T>* getValues(branch<T, K>* branch) {
+    myArraySequence<T>* getValues(branch<T, K>* branch) const {
         if (!branch) {
             return new myArraySequence<T>;
         }
@@ -208,7 +208,7 @@ private:
         return res1;
     }
 
-    myArraySequence<K>* getKeys(branch<T, K>* branch) {
+    myArraySequence<K>* getKeys(branch<T, K>* branch) const {
         if (!branch) {
             return new myArraySequence<K>;
         }
@@ -500,11 +500,11 @@ public:
         return !equal(binaryTree);
     }
 
-    myArraySequence<T>* getValues() {
+    myArraySequence<T>* getValues() const {
         return getValues(head);
     }
 
-    myArraySequence<T>* getKeys() {
+    myArraySequence<K>* getKeys() const {
         return getKeys(head);
     }
 

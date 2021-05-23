@@ -39,7 +39,7 @@ public:
         elements.Delete();
     }
 
-    explicit mySet(mySet<T> *set) {
+    explicit mySet(const mySet<T> *set) {
         elements = set->elements;
     }
 
@@ -56,14 +56,14 @@ public:
         }
     }
 
-    int length() {
+    int length() const {
         auto *keys = elements.getKeys();
         int res = keys->length();
         delete keys;
         return res;
     }
 
-    int find(T element) {
+    int find(T element) const {
         try {
             elements.find(element);
             return 1;
@@ -73,7 +73,7 @@ public:
         }
     }
 
-    int find(const mySet<T>& set) {
+    int find(const mySet<T>& set) const {
         auto *keys1 = elements.getKeys();
         auto *keys2 = set.elements.getKeys();
         int count = 0;
@@ -121,7 +121,7 @@ public:
         delete keys;
     }
 
-    T reduce(T (*f)(T res, T value), T start) {
+    T reduce(T (*f)(T res, T value), T start) const {
         auto *keys = elements.getKeys();
 
         T res = start;
@@ -130,18 +130,24 @@ public:
             res = f (res, keys->get(0));
         }
 
+        delete keys;
         return res;
     }
 
-    void join(const mySet<T>& set) {
+    std::string getStr() const {
+        return std::string("{") + elements.getStr("LK, R", "K") + std::string("\b\b}");
+    }
+
+    mySet<T> join(const mySet<T>& set) {
         auto *keys = set.elements.getKeys();
         for (int i = 0; i < keys->length(); i++) {
             add(keys->get(i));
         }
         delete keys;
+        return *this;
     }
 
-    void cross(const mySet<T>& set) {
+    mySet<T> cross(const mySet<T>& set) {
         auto *keys1 = elements.getKeys();
         auto *keys2 = set.elements.getKeys();
         mySet<T> res;
@@ -162,13 +168,13 @@ public:
                 j++;
         }
 
-        elements = res;
+        elements = res.elements;
 
         delete keys1;
         delete keys2;
     }
 
-    void sub(const mySet<T>& set) {
+    mySet<T> sub(const mySet<T>& set) {
         auto *keys1 = elements.getKeys();
         auto *keys2 = set.elements.getKeys();
 
@@ -187,6 +193,7 @@ public:
             }
             else {
                 res.add(val1);
+                i++;
             }
         }
 
@@ -198,21 +205,39 @@ public:
 
         delete keys1;
         delete keys2;
+
+        return *this;
     }
 
-    mySet<T> operator & (const mySet<T> &set) {
+    mySet<T>& operator = (const mySet<T>& set) {
+        elements = set.elements;
+    }
+
+    mySet<T> operator & (const mySet<T> &set) const {
         return mySet<T>(this).cross(set);
     }
 
-    mySet<T> operator | (const mySet<T> &set) {
+    mySet<T> operator * (const mySet<T> &set) const {
+        return mySet<T>(this).cross(set);
+    }
+
+    mySet<T> operator | (const mySet<T> &set) const {
         return mySet<T>(this).join(set);
     }
 
-    mySet<T> operator / (const mySet<T> &set) {
+    mySet<T> operator + (const mySet<T> &set) const {
+        return mySet<T>(this).join(set);
+    }
+
+    mySet<T> operator / (const mySet<T> &set) const {
         return mySet<T>(this).sub(set);
     }
 
-    int operator == (const mySet<T> &set) {
+    mySet<T> operator - (const mySet<T> &set) const {
+        return mySet<T>(this).sub(set);
+    }
+
+    int operator == (const mySet<T> &set) const {
         auto *keys1 = elements.getKeys();
         auto *keys2 = set.elements.getKeys();
 
@@ -233,26 +258,30 @@ public:
         return res;
     }
 
-    int operator != (const mySet<T> &set) {
+    int operator != (const mySet<T> &set) const {
         return !(*this == set);
     }
 
-    int operator <  (const mySet<T> &set) {
+    int operator <  (const mySet<T> &set) const {
         return *this != set && set.find(*this);
     }
 
-    int operator <= (const mySet<T> &set) {
+    int operator <= (const mySet<T> &set) const {
         return set.find(*this);
     }
 
-    int operator >  (const mySet<T> &set) {
+    int operator >  (const mySet<T> &set) const {
         return *this != set && find(set);
     }
 
-    int operator >= (const mySet<T> &set) {
+    int operator >= (const mySet<T> &set) const {
         return find(set);
     }
 };
 
+template<class T>
+std::ostream &operator << (std::ostream &cout, const mySet<T> &set) {
+    return cout << set.getStr();
+}
 
 #endif //LAB3_MYSET_H

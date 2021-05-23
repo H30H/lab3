@@ -9,6 +9,8 @@
 /cygdrive/c/cc++ labs/lab3/main.cpp
 myBinaryTree.h
 /cygdrive/c/cc++ labs/lab3/myBinaryTree.h
+mySet.h
+/cygdrive/c/cc++ labs/lab3/mySet.h
 iostream
 -
 ctime
@@ -17,10 +19,6 @@ ctime
 /cygdrive/c/cc++ labs/lab3/myArraySequence.h
 myDynamicArray.cpp
 /cygdrive/c/cc++ labs/lab3/myDynamicArray.cpp
-
-/cygdrive/c/cc++ labs/lab3/myBinaryTree.cpp
-myBinaryTree.h
-/cygdrive/c/cc++ labs/lab3/myBinaryTree.h
 
 /cygdrive/c/cc++ labs/lab3/myBinaryTree.h
 myStack.h

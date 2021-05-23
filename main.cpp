@@ -1,4 +1,5 @@
 #include "myBinaryTree.h"
+#include "mySet.h"
 
 #include <iostream>
 #include <ctime>
@@ -58,19 +59,15 @@ int main() {
 
     return 0;
 */
-    myBinaryTree<int, int> binaryTree1;
-    myBinaryTree<int, int> binaryTree2;
-
-    for (int i = 0, j = 1; i < 20; i++, j *= 2) {
-        binaryTree1.insert(j, i);
+    mySet<int> set1, set2;
+    for (int i = 0; i < 20; i++) {
+        set1.add(i);
+        set2.add(i*2);
     }
 
-    cout << binaryTree1 << endl;
-    binaryTree2 = binaryTree1;
-    cout << binaryTree1 << endl;
-    cout << binaryTree2 << endl;
-
-    cout << binaryTree1.strLikeList();
-
+    cout << set1 << endl << set2 << endl;
+    cout << set1 + set2 << endl;
+    //cout << set1 * set2 << endl;
+    cout << set1 - set2 << endl;
     return 0;
 }
