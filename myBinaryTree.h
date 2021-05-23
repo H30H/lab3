@@ -99,11 +99,12 @@ public:
     };
 private:
     branch<T, K> *head;
+    short int _isCopy_ = 0;
 
     ///Функции для работы преобразования в строку
 
-    std::string strFromQueue(int* queue, int num, std::string Start, std::string First,
-                             std::string Second, std::string End, std::string typePrint) {
+    std::string strFromQueue(int* queue, int num, const std::string &Start, const std::string &First,
+                             const std::string &Second, const std::string &End, const std::string &typePrint) const {
         int ind1 = 0, ind2 = 0;
         switch (queue[num]) {
             default: return std::string();
@@ -132,8 +133,8 @@ private:
         return std::string();
     }
 
-    std::string strSplited(int* queue, std::string Start, std::string First,
-                           std::string Second, std::string End, std::string typePrint) {
+    std::string strSplited(int* queue, const std::string &Start, const std::string &First,
+                           const std::string &Second, const std::string &End, const std::string &typePrint) const {
         if (head == nullptr) {
             return std::string();
         }
@@ -150,10 +151,10 @@ private:
     }
 
     void strGetKeys(const std::string &str, int* queue, int* key, std::string* keys,
-                    std::string &Start, std::string &First, std::string &Second, std::string &End) {
-        key[0] = str.find(keys[0]);
-        key[1] = str.find(keys[1]);
-        key[2] = str.find(keys[2]);
+                    std::string &Start, std::string &First, std::string &Second, std::string &End) const {
+        key[0] = (int) str.find(keys[0]);
+        key[1] = (int) str.find(keys[1]);
+        key[2] = (int) str.find(keys[2]);
 
         if (key[0] > str.length() || key[1] > str.length() || key[2] > str.length())
             return;
@@ -226,9 +227,12 @@ public:
 
     myBinaryTree(): head(nullptr) {}
 
-    myBinaryTree(branch<T, K> *element): head(element) {}
+    explicit myBinaryTree(branch<T, K> *element): head(element), _isCopy_(1) {}
 
     void Delete() {
+        if (head == nullptr)
+            return;
+
         if (head->left != nullptr) {
             myBinaryTree<T, K>(head->left).Delete();
         }
@@ -244,6 +248,11 @@ public:
         res->key = key;
         res->data = data;
         head = res;
+    }
+
+    ~myBinaryTree() {
+        if (!_isCopy_)
+            Delete();
     }
 
     T find(K key) {
@@ -397,27 +406,17 @@ public:
         return this;
     }
 
-    void print() {
-        if (head == nullptr) return;
-        std::cout << '{';
-        myBinaryTree<T, K>(head->left).print();
-
-        std::cout << "}(" << head->data << ")[";
-
-        myBinaryTree<T, K>(head->right).print();
-        std::cout << ']';
-    }
-
-    std::string getStr(const std::string& str) {
+    std::string getStr(const std::string& str) const {
         std::string typePrint("KD");
         return getStr(str, typePrint);
     }
 
-    std::string getStr(const std::string& str, const std::string& typePrint) {
+    std::string getStr(const std::string& str, const std::string& typePrint) const {
         int queue[] = {-1, -1, -1};
         int key[3];
+        int val = str.length() + 1;
         for (auto &i : key) {
-            i = str.length() + 1;
+            i = val;
         }
         std::string Start, First, Second, End;
 
@@ -428,41 +427,29 @@ public:
         return strSplited(queue, Start, First, Second, End, typePrint);
     }
 
-    std::string getKeyStr() {
-        return std::string();
+    std::string strLikeList() {
+        return strLikeList(0, 0);
     }
 
-    void printAll() {
-        if (head == nullptr) return;
-
-        myBinaryTree<T, K>(head->left).printAll();
-
-        std::cout << head->key << ": " << head->data << ", " << head->height << '\n';
-
-        myBinaryTree<T, K>(head->right).printAll();
-    }
-
-    void printAll2() {
-        printAll2(0, 0);
-    }
-
-    void printAll2(int count, int pol) {
+    std::string strLikeList(int count, int pol) {
+        std::string res;
         for (int i = 0; i < count - (pol != 0) + count - 1; i++)
-            std::cout << ' ';
+            res += ' ';
 
         if (pol == 1)
-            std::cout << "├-";
+            res += "├-";
         else if (pol == 2)
-            std::cout << "└-";
+            res += "└-";
 
         if (head == nullptr) {
-            std::cout << "nullptr\n";
-            return;
+            res += "nullptr\n";
+            return res;
         }
-        std::cout << head->key << '\n';
+        res += std::to_string(head->key) + '\n';
 
-        myBinaryTree<T, K>(head->left).printAll2(count + 1, 1);
-        myBinaryTree<T, K>(head->right).printAll2(count + 1, 2);
+        res += myBinaryTree<T, K>(head->left).strLikeList(count + 1, 1);
+        res += myBinaryTree<T, K>(head->right).strLikeList(count + 1, 2);
+        return res;
     }
 
     myBinaryTree<T, K>& operator = (const myBinaryTree<T, K>& binaryTree) {
@@ -471,10 +458,10 @@ public:
         if (binaryTree.head == nullptr)
             return *this;
 
-        myQueue<branch<T, K>*> queue(head);
+        myQueue<branch<T, K>*> queue(binaryTree.head);
 
         while(queue.length() != 0) {
-            auto branchRes = queue.get();
+            auto *branchRes = queue.get();
             insert(branchRes->data, branchRes->key);
             if (branchRes->left != nullptr)
                 queue.add(branchRes->left);
@@ -594,5 +581,11 @@ public:
         }
     }
 };
+
+template <class T, class K>
+std::ostream& operator << (std::ostream& cout, const myBinaryTree<T, K> &binaryTree) {
+    std::string format("{L}[K](R)");
+    return std::cout << binaryTree.getStr(format, std::string("K"));
+}
 
 #endif //LAB3_MYBINARYTREE_H

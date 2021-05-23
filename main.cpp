@@ -20,29 +20,57 @@ void func2(const std::string& str1) {
 void func3(std::string* str1) {
     char c;
     for (int i = 0; i < str1->length(); i++) {
-        c = (*str1)[i];
+        c = str1->operator[](i);
     }
 }
 
 using namespace std;
 int main() {
-    int key, data;
-    myBinaryTree<int, int> tree;
-    while(true) {
-        int n;
-        cin >> n;
-        cin >> key >> data;
-        if (key == -1 && data == -1)
-            break;
-        if (n == 1)
-            tree.insert(data, key);
-        else
-            tree.remove(key);
-        //tree.printAll2();
-        cout << tree.getStr(string("LK, R"), string("K")) << endl;
-        cout << tree.getKeys() << endl;
+/*
+    int count = 400000;
+
+    string str;
+    for (int i = 0; i < 10000; i++) {
+        str += (char) (i % 256);
     }
 
+    clock_t time1, time2;
+    time1 = clock();
+    for (int i = 0; i < count; i++) {
+        func1(str);
+    }
+    time2 = clock();
+    cout << time2 - time1 << endl;
+
+    time1 = clock();
+    for (int i = 0; i < count; i++) {
+        func2(str);
+    }
+    time2 = clock();
+    cout << time2 - time1 << endl;
+
+    time1 = clock();
+    for (int i = 0; i < count; i++) {
+        func3(&str);
+    }
+    time2 = clock();
+    cout << time2 - time1 << endl;
+
+    return 0;
+*/
+    myBinaryTree<int, int> binaryTree1;
+    myBinaryTree<int, int> binaryTree2;
+
+    for (int i = 0, j = 1; i < 20; i++, j *= 2) {
+        binaryTree1.insert(j, i);
+    }
+
+    cout << binaryTree1 << endl;
+    binaryTree2 = binaryTree1;
+    cout << binaryTree1 << endl;
+    cout << binaryTree2 << endl;
+
+    cout << binaryTree1.strLikeList();
 
     return 0;
 }

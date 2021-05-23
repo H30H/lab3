@@ -35,6 +35,14 @@ public:
         elements = set.elements;
     }
 
+    ~mySet() {
+        elements.Delete();
+    }
+
+    explicit mySet(mySet<T> *set) {
+        elements = set->elements;
+    }
+
     void add(T element) {
         elements.insert(0, element);
     }
@@ -63,6 +71,36 @@ public:
         catch (typename myBinaryTree<char, T>::InvalidKeyword error) {
             return 0;
         }
+    }
+
+    int find(const mySet<T>& set) {
+        auto *keys1 = elements.getKeys();
+        auto *keys2 = set.elements.getKeys();
+        int count = 0;
+
+        int i = 0, j = 0;
+        while (i < keys1->length() && j < keys2->length()) {
+            T val1 = keys1->get(i);
+            T val2 = keys2->get(i);
+            if (val1 == val2) {
+                i++;
+                j++;
+                count++;
+            }
+            else if (val1 < val2) {
+                i++;
+            }
+            else {
+                j++;
+            }
+        }
+
+        count = count == keys2->length();
+
+        delete keys1;
+        delete keys2;
+
+        return count;
     }
 
     void map(T (*f)()) {
@@ -160,6 +198,59 @@ public:
 
         delete keys1;
         delete keys2;
+    }
+
+    mySet<T> operator & (const mySet<T> &set) {
+        return mySet<T>(this).cross(set);
+    }
+
+    mySet<T> operator | (const mySet<T> &set) {
+        return mySet<T>(this).join(set);
+    }
+
+    mySet<T> operator / (const mySet<T> &set) {
+        return mySet<T>(this).sub(set);
+    }
+
+    int operator == (const mySet<T> &set) {
+        auto *keys1 = elements.getKeys();
+        auto *keys2 = set.elements.getKeys();
+
+        int res = 1;
+
+        if (keys1->length() != keys2->length()) {
+            res = 0;
+        }
+
+        for (int i = 0; i < keys1->length() && res != 0; i++) {
+            if (keys1->get(i) != keys2->get(i)) {
+                res = 0;
+            }
+        }
+
+        delete keys1;
+        delete keys2;
+        return res;
+    }
+
+    int operator != (const mySet<T> &set) {
+        return !(*this == set);
+    }
+
+    int operator <  (const mySet<T> &set) {
+        return *this != set && set.find(*this);
+    }
+
+    int operator <= (const mySet<T> &set) {
+        return set.find(*this);
+    }
+
+    int operator >  (const mySet<T> &set) {
+        return *this != set && find(set);
+    }
+
+    int operator >= (const mySet<T> &set) {
+        return find(set);
     }
 };
 
