@@ -200,7 +200,7 @@ public:
             }
         }
 
-        for (i; i < keys1->length(); i++) {
+        for (; i < keys1->length(); i++) {
             add(keys1->get(i));
         }
 
@@ -235,10 +235,10 @@ public:
             }
         }
 
-        for (i; i < keys1->length(); i++)
+        for (; i < keys1->length(); i++)
             add(keys1->get(i));
 
-        for (j; j < keys2->length(); j++)
+        for (; j < keys2->length(); j++)
             add(keys2->get(j));
 
         delete keys1;
@@ -302,7 +302,7 @@ public:
     }
 
     int operator != (const mySet<T> &set) const {
-        return !(*this == set);
+        return !(operator==(set));
     }
 
     int operator <  (const mySet<T> &set) const {
