@@ -249,6 +249,7 @@ public:
 
     mySet<T>& operator = (const mySet<T>& set) {
         elements = set.elements;
+        return *this;
     }
 
     mySet<T> operator & (const mySet<T> &set) const {
