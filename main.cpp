@@ -1,5 +1,5 @@
-#include "myBinaryTree.h"
-#include "mySet.h"
+#include "sources/myBinaryTree.h"
+#include "sources/mySet.h"
 
 #include <iostream>
 #include <ctime>

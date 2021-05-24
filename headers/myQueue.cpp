@@ -2,4 +2,4 @@
 // Created by Grisha on 19.05.2021.
 //
 
-#include "myQueue.h"
+#include "../sources/myQueue.h"

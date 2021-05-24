@@ -5,7 +5,7 @@
 #ifndef LAB3_MYSTACK_H
 #define LAB3_MYSTACK_H
 
-#include "myLinkedList.cpp"
+#include "../headers/myLinkedList.cpp"
 
 template<class T>
 class myStack {

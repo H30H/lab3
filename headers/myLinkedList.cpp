@@ -6,7 +6,7 @@
 #ifndef LAB2_MYLINKEDLIST_CPP
 #define LAB2_MYLINKEDLIST_CPP
 
-#include "myLinkedList.h"
+#include "../sources/myLinkedList.h"
 
 template<class T>
 void myLinkedList<T>::append(T item) {  //добавление элемента в конец списка

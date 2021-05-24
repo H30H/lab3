@@ -3,4 +3,4 @@ project(lab3)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(lab3 main.cpp myBinaryTree.cpp myLinkedList.cpp myStack.cpp myStack.h mySet.cpp mySet.h myQueue.cpp myQueue.h)
+add_executable(lab3 main.cpp headers/myBinaryTree.cpp headers/myLinkedList.cpp headers/myStack.cpp sources/myStack.h headers/mySet.cpp sources/mySet.h headers/myQueue.cpp sources/myQueue.h)
