@@ -392,7 +392,7 @@ public:
                 branch<T, K>* thing = last;
                 while(stack.length() != 0) {
                     thing = stack.get();
-                    thing->left = last->balance();//192 195
+                    thing->left = last->balance();
                     last = thing;
                 }
 

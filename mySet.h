@@ -35,12 +35,12 @@ public:
         elements = set.elements;
     }
 
-    ~mySet() {
-        elements.Delete();
-    }
-
     explicit mySet(const mySet<T> *set) {
         elements = set->elements;
+    }
+
+    ~mySet() {
+        elements.Delete();
     }
 
     void add(T element) {
@@ -153,22 +153,23 @@ public:
         mySet<T> res;
 
         int i = 0, j = 0;
+        elements.Delete();
 
         while (i < keys1->length() && j < keys2->length()) {
             T val1 = keys1->get(i);
             T val2 = keys2->get(j);
             if (val1 == val2) {
-                res.add(val1);
+                add(val1);
                 i++;
                 j++;
             }
-            else if (val1 < val2)
+            else if (val1 < val2) {
                 i++;
-            else
+            }
+            else {
                 j++;
+            }
         }
-
-        elements = res.elements;
 
         delete keys1;
         delete keys2;
@@ -180,9 +181,9 @@ public:
         auto *keys1 = elements.getKeys();
         auto *keys2 = set.elements.getKeys();
 
-        mySet<T> res;
-
         int i = 0, j = 0;
+        elements.Delete();
+
         while (i < keys1->length() && j < keys2->length()) {
             T val1 = keys1->get(i);
             T val2 = keys2->get(j);
@@ -190,20 +191,55 @@ public:
                 i++;
                 j++;
             }
-            else if (val1 > val2) {
-                j++;
-            }
-            else {
-                res.add(val1);
+            else if (val1 < val2) {
+                add(val1);
                 i++;
             }
+            else {
+                j++;
+            }
         }
-
-        elements = res.elements;
 
         for (i; i < keys1->length(); i++) {
             add(keys1->get(i));
         }
+
+        delete keys1;
+        delete keys2;
+
+        return *this;
+    }
+
+    mySet<T> Xor(const mySet<T> &set) {
+        auto *keys1 = elements.getKeys();
+        auto *keys2 = set.elements.getKeys();
+
+        int i = 0, j = 0;
+        elements.Delete();
+
+        while (i < keys1->length() && j < keys2->length()) {
+            T val1 = keys1->get(i);
+            T val2 = keys2->get(j);
+
+            if (val1 == val2) {
+                i++;
+                j++;
+            }
+            else if (val1 < val2) {
+                add(val1);
+                i++;
+            }
+            else {
+                add(val2);
+                j++;
+            }
+        }
+
+        for (i; i < keys1->length(); i++)
+            add(keys1->get(i));
+
+        for (j; j < keys2->length(); j++)
+            add(keys2->get(j));
 
         delete keys1;
         delete keys2;
@@ -237,6 +273,10 @@ public:
 
     mySet<T> operator - (const mySet<T> &set) const {
         return mySet<T>(this).sub(set);
+    }
+
+    mySet<T> operator xor (const mySet<T> &set) const {
+        return mySet<T>(this).Xor(set);
     }
 
     int operator == (const mySet<T> &set) const {

@@ -69,5 +69,14 @@ int main() {
     cout << set1 + set2 << endl;
     cout << set1 * set2 << endl;
     cout << set1 - set2 << endl;
+    cout << (set1 xor set2 ) << endl;
+
+    myBinaryTree<int, int> tree;
+    for (int i = 0; i < 20; i++)
+        tree.insert(i, i);
+
+    cout << tree.strLikeList() << endl;
+    cout << tree << endl;
+
     return 0;
 }
