@@ -5,6 +5,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/lab3.dir/Sources/mySet.cpp.o"
   "CMakeFiles/lab3.dir/Sources/myStack.cpp.o"
   "CMakeFiles/lab3.dir/main.cpp.o"
+  "CMakeFiles/lab3.dir/menu.cpp.o"
   "CMakeFiles/lab3.dir/tests/test.cpp.o"
   "lab3.exe"
   "lab3.pdb"

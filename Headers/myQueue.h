@@ -5,7 +5,7 @@
 #ifndef LAB3_MYQUEUE_H
 #define LAB3_MYQUEUE_H
 
-#include "../Sources/myLinkedList.cpp"
+#include "myLinkedList.h"
 template<class T>
 class myQueue {
 private:

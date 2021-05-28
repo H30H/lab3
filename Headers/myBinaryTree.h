@@ -329,7 +329,7 @@ public:
         head = res;
         iterator(this);
     }
-
+    
 
     ~myBinaryTree() {
         if (!_isCopy_)

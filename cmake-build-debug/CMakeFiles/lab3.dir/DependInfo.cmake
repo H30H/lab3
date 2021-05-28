@@ -10,6 +10,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/cygdrive/c/cc++ labs/lab3/Sources/mySet.cpp" "/cygdrive/c/cc++ labs/lab3/cmake-build-debug/CMakeFiles/lab3.dir/Sources/mySet.cpp.o"
   "/cygdrive/c/cc++ labs/lab3/Sources/myStack.cpp" "/cygdrive/c/cc++ labs/lab3/cmake-build-debug/CMakeFiles/lab3.dir/Sources/myStack.cpp.o"
   "/cygdrive/c/cc++ labs/lab3/main.cpp" "/cygdrive/c/cc++ labs/lab3/cmake-build-debug/CMakeFiles/lab3.dir/main.cpp.o"
+  "/cygdrive/c/cc++ labs/lab3/menu.cpp" "/cygdrive/c/cc++ labs/lab3/cmake-build-debug/CMakeFiles/lab3.dir/menu.cpp.o"
   "/cygdrive/c/cc++ labs/lab3/tests/test.cpp" "/cygdrive/c/cc++ labs/lab3/cmake-build-debug/CMakeFiles/lab3.dir/tests/test.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

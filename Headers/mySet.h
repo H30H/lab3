@@ -11,21 +11,21 @@
 template <class T>
 class mySet {
 private:
-    myBinaryTree<char, T> elements;
+    myBinaryTree<T, char> elements;
 public:
     class IsEmpty {};
 
     mySet() {
-        elements = myBinaryTree<char, T>();
+        elements = myBinaryTree<T, char>();
     }
 
     explicit mySet(T item) {
-        elements = myBinaryTree<char, T>();
+        elements = myBinaryTree<T, char>();
         elements.insert(0, item);
     }
 
     mySet(T* items, int count) {
-        elements = myBinaryTree<char, T>();
+        elements = myBinaryTree<T, char>();
         for (int i = 0; i < count; i++) {
             elements.insert(0, items[i]);
         }
@@ -33,6 +33,12 @@ public:
 
     mySet(const mySet<T>& set) {
         elements = set.elements;
+    }
+
+    explicit mySet(const myArraySequence<T> &arraySequence) {
+        for (auto &i : arraySequence) {
+            elements.insert(0, i);
+        }
     }
 
     explicit mySet(const mySet<T> *set) {
@@ -51,7 +57,7 @@ public:
         try {
             elements.remove(element);
         }
-        catch (typename myBinaryTree<char, T>::InvalidKeyword error) {
+        catch (typename myBinaryTree<T, char>::InvalidKeyword error) {
             return;
         }
     }
@@ -68,7 +74,7 @@ public:
             elements.find(element);
             return 1;
         }
-        catch (typename myBinaryTree<char, T>::InvalidKeyword error) {
+        catch (typename myBinaryTree<T, char>::InvalidKeyword error) {
             return 0;
         }
     }
@@ -81,7 +87,7 @@ public:
         int i = 0, j = 0;
         while (i < keys1->length() && j < keys2->length()) {
             T val1 = keys1->get(i);
-            T val2 = keys2->get(i);
+            T val2 = keys2->get(j);
             if (val1 == val2) {
                 i++;
                 j++;
@@ -326,5 +332,12 @@ template<class T>
 std::ostream &operator << (std::ostream &cout, const mySet<T> &set) {
     return cout << set.getStr();
 }
+
+template<class T>
+std::ostream &operator << (std::ostream &cout, mySet<T> *set) {
+    return cout << set->getStr();
+}
+
+
 
 #endif //LAB3_MYSET_H

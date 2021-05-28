@@ -37,6 +37,7 @@ public:
         Iterator(): list(nullptr), el(nullptr) {}
         explicit Iterator(myLinkedList<T> *linkedList): list(linkedList), el(linkedList->head) {}
         explicit Iterator(myLinkedList<T> *linkedList, element *elem): list(linkedList), el(elem) {}
+        friend myLinkedList<T>;
 
         T &operator*() const {
             return el->data;
@@ -57,7 +58,7 @@ public:
         }
 
 
-        Iterator* begin() const {
+        Iterator begin() const {
             return Iterator(list);
         }
 
@@ -65,10 +66,10 @@ public:
             return Iterator(list, nullptr);
         }
 
-        void operator () (myLinkedList<T> *linkedList) { //TODO убрать
-            list = linkedList;
-            el = linkedList->head;
-        }
+//        void operator() (myLinkedList<T> *linkedList) {
+//            list = linkedList;
+//            el = linkedList->head;
+//        }
 
         Iterator& operator = (Iterator iterator) {
             list = iterator.list;
@@ -76,23 +77,6 @@ public:
             return *this;
         }
     };
-
-    friend std::ostream &operator << (std::ostream &cout, myLinkedList<T> linkedList) {
-        element *el = linkedList.head;
-        cout << '{';
-        while(el != nullptr) {
-            cout << el->data;
-            el = el->next;
-            if (el != nullptr) {
-                cout << ", ";
-            }
-        }
-        return cout << '}';
-    }
-
-    friend std::ostream &operator << (std::ostream &cout, myLinkedList<T> *linkedList) {
-        return cout << *linkedList;
-    }
 
     void append(T item);
 
@@ -263,5 +247,18 @@ public:
 
     Iterator iter;
 };
+
+template<class T>
+std::ostream &operator << (std::ostream &cout, myLinkedList<T> linkedList) {
+    for (auto &i : linkedList) {
+        cout << i << ", ";
+    }
+    return cout << "\b\b}";
+}
+
+template<class T>
+std::ostream &operator << (std::ostream &cout, myLinkedList<T> *linkedList) {
+    return cout << *linkedList;
+}
 
 #endif //LAB2_MYLINKEDLIST_H
