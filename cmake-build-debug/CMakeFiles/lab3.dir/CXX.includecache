@@ -6,63 +6,113 @@
 
 #IncludeRegexTransform: 
 
-/cygdrive/c/cc++ labs/lab3/main.cpp
-myBinaryTree.h
-/cygdrive/c/cc++ labs/lab3/myBinaryTree.h
-mySet.h
-/cygdrive/c/cc++ labs/lab3/mySet.h
-iostream
--
-ctime
--
+/cygdrive/c/cc++ labs/lab3/Headers/myArraySequence.h
+../Sources/myDynamicArray.cpp
+/cygdrive/c/cc++ labs/lab3/Sources/myDynamicArray.cpp
 
-/cygdrive/c/cc++ labs/lab3/myArraySequence.h
-myDynamicArray.cpp
-/cygdrive/c/cc++ labs/lab3/myDynamicArray.cpp
-
-/cygdrive/c/cc++ labs/lab3/myBinaryTree.h
+/cygdrive/c/cc++ labs/lab3/Headers/myBinaryTree.h
 myStack.h
-/cygdrive/c/cc++ labs/lab3/myStack.h
+/cygdrive/c/cc++ labs/lab3/Headers/myStack.h
 myQueue.h
-/cygdrive/c/cc++ labs/lab3/myQueue.h
+/cygdrive/c/cc++ labs/lab3/Headers/myQueue.h
 myArraySequence.h
-/cygdrive/c/cc++ labs/lab3/myArraySequence.h
+/cygdrive/c/cc++ labs/lab3/Headers/myArraySequence.h
 iostream
 -
 
-/cygdrive/c/cc++ labs/lab3/myDynamicArray.cpp
-myDynamicArray.h
-/cygdrive/c/cc++ labs/lab3/myDynamicArray.h
-
-/cygdrive/c/cc++ labs/lab3/myDynamicArray.h
+/cygdrive/c/cc++ labs/lab3/Headers/myDynamicArray.h
 cstring
-/cygdrive/c/cc++ labs/lab3/cstring
+/cygdrive/c/cc++ labs/lab3/Headers/cstring
 string
 -
 iostream
 -
 
-/cygdrive/c/cc++ labs/lab3/myLinkedList.cpp
-myLinkedList.h
-/cygdrive/c/cc++ labs/lab3/myLinkedList.h
-
-/cygdrive/c/cc++ labs/lab3/myLinkedList.h
+/cygdrive/c/cc++ labs/lab3/Headers/myLinkedList.h
 cstdlib
-/cygdrive/c/cc++ labs/lab3/cstdlib
+/cygdrive/c/cc++ labs/lab3/Headers/cstdlib
 iostream
 -
 
-/cygdrive/c/cc++ labs/lab3/myQueue.h
+/cygdrive/c/cc++ labs/lab3/Headers/myQueue.h
 myLinkedList.h
-/cygdrive/c/cc++ labs/lab3/myLinkedList.h
+/cygdrive/c/cc++ labs/lab3/Headers/myLinkedList.h
 
-/cygdrive/c/cc++ labs/lab3/mySet.h
+/cygdrive/c/cc++ labs/lab3/Headers/mySet.h
 myBinaryTree.h
-/cygdrive/c/cc++ labs/lab3/myBinaryTree.h
+/cygdrive/c/cc++ labs/lab3/Headers/myBinaryTree.h
 myArraySequence.h
-/cygdrive/c/cc++ labs/lab3/myArraySequence.h
+/cygdrive/c/cc++ labs/lab3/Headers/myArraySequence.h
 
-/cygdrive/c/cc++ labs/lab3/myStack.h
-myLinkedList.cpp
-/cygdrive/c/cc++ labs/lab3/myLinkedList.cpp
+/cygdrive/c/cc++ labs/lab3/Headers/myStack.h
+../Sources/myLinkedList.cpp
+/cygdrive/c/cc++ labs/lab3/Sources/myLinkedList.cpp
+
+/cygdrive/c/cc++ labs/lab3/Sources/myBinaryTree.cpp
+../Headers/myBinaryTree.h
+/cygdrive/c/cc++ labs/lab3/Headers/myBinaryTree.h
+
+/cygdrive/c/cc++ labs/lab3/Sources/myDynamicArray.cpp
+../Headers/myDynamicArray.h
+/cygdrive/c/cc++ labs/lab3/Headers/myDynamicArray.h
+
+/cygdrive/c/cc++ labs/lab3/Sources/myLinkedList.cpp
+../Headers/myLinkedList.h
+/cygdrive/c/cc++ labs/lab3/Headers/myLinkedList.h
+
+/cygdrive/c/cc++ labs/lab3/Sources/myQueue.cpp
+../Headers/myQueue.h
+/cygdrive/c/cc++ labs/lab3/Headers/myQueue.h
+
+/cygdrive/c/cc++ labs/lab3/Sources/mySet.cpp
+../Headers/mySet.h
+/cygdrive/c/cc++ labs/lab3/Headers/mySet.h
+
+/cygdrive/c/cc++ labs/lab3/Sources/myStack.cpp
+../Headers/myStack.h
+/cygdrive/c/cc++ labs/lab3/Headers/myStack.h
+
+/cygdrive/c/cc++ labs/lab3/main.cpp
+Headers/myBinaryTree.h
+/cygdrive/c/cc++ labs/lab3/Headers/myBinaryTree.h
+Headers/mySet.h
+/cygdrive/c/cc++ labs/lab3/Headers/mySet.h
+tests/test.h
+/cygdrive/c/cc++ labs/lab3/tests/test.h
+iostream
+-
+ctime
+-
+menu.h
+/cygdrive/c/cc++ labs/lab3/menu.h
+
+/cygdrive/c/cc++ labs/lab3/menu.cpp
+menu.h
+/cygdrive/c/cc++ labs/lab3/menu.h
+random
+/cygdrive/c/cc++ labs/lab3/random
+
+/cygdrive/c/cc++ labs/lab3/menu.h
+complex
+-
+iostream
+-
+tests/test.h
+/cygdrive/c/cc++ labs/lab3/tests/test.h
+Headers/mySet.h
+/cygdrive/c/cc++ labs/lab3/Headers/mySet.h
+
+/cygdrive/c/cc++ labs/lab3/tests/test.cpp
+test.h
+/cygdrive/c/cc++ labs/lab3/tests/test.h
+iostream
+/cygdrive/c/cc++ labs/lab3/tests/iostream
+random
+/cygdrive/c/cc++ labs/lab3/tests/random
+
+/cygdrive/c/cc++ labs/lab3/tests/test.h
+ctime
+/cygdrive/c/cc++ labs/lab3/tests/ctime
+../Headers/mySet.h
+/cygdrive/c/cc++ labs/lab3/Headers/mySet.h
 

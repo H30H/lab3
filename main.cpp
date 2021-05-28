@@ -41,8 +41,6 @@ int main() {
     return 0;
 */
 
-    cout << "☺☻☼" << endl;//│ ├  └
-
     myBinaryTree<int, int> binaryTree;
     for (int i = 0; i <= 200; i+=2) {
         binaryTree.insert(i, i);
