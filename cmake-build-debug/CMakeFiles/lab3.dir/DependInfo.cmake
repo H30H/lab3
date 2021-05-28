@@ -4,12 +4,12 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/cygdrive/c/cc++ labs/lab3/Sources/myBinaryTree.cpp" "/cygdrive/c/cc++ labs/lab3/cmake-build-debug/CMakeFiles/lab3.dir/Sources/myBinaryTree.cpp.o"
+  "/cygdrive/c/cc++ labs/lab3/Sources/myLinkedList.cpp" "/cygdrive/c/cc++ labs/lab3/cmake-build-debug/CMakeFiles/lab3.dir/Sources/myLinkedList.cpp.o"
+  "/cygdrive/c/cc++ labs/lab3/Sources/myQueue.cpp" "/cygdrive/c/cc++ labs/lab3/cmake-build-debug/CMakeFiles/lab3.dir/Sources/myQueue.cpp.o"
+  "/cygdrive/c/cc++ labs/lab3/Sources/mySet.cpp" "/cygdrive/c/cc++ labs/lab3/cmake-build-debug/CMakeFiles/lab3.dir/Sources/mySet.cpp.o"
+  "/cygdrive/c/cc++ labs/lab3/Sources/myStack.cpp" "/cygdrive/c/cc++ labs/lab3/cmake-build-debug/CMakeFiles/lab3.dir/Sources/myStack.cpp.o"
   "/cygdrive/c/cc++ labs/lab3/main.cpp" "/cygdrive/c/cc++ labs/lab3/cmake-build-debug/CMakeFiles/lab3.dir/main.cpp.o"
-  "/cygdrive/c/cc++ labs/lab3/myBinaryTree.cpp" "/cygdrive/c/cc++ labs/lab3/cmake-build-debug/CMakeFiles/lab3.dir/myBinaryTree.cpp.o"
-  "/cygdrive/c/cc++ labs/lab3/myLinkedList.cpp" "/cygdrive/c/cc++ labs/lab3/cmake-build-debug/CMakeFiles/lab3.dir/myLinkedList.cpp.o"
-  "/cygdrive/c/cc++ labs/lab3/myQueue.cpp" "/cygdrive/c/cc++ labs/lab3/cmake-build-debug/CMakeFiles/lab3.dir/myQueue.cpp.o"
-  "/cygdrive/c/cc++ labs/lab3/mySet.cpp" "/cygdrive/c/cc++ labs/lab3/cmake-build-debug/CMakeFiles/lab3.dir/mySet.cpp.o"
-  "/cygdrive/c/cc++ labs/lab3/myStack.cpp" "/cygdrive/c/cc++ labs/lab3/cmake-build-debug/CMakeFiles/lab3.dir/myStack.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

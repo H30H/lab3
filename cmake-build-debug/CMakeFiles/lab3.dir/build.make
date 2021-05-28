@@ -89,89 +89,89 @@ CMakeFiles/lab3.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lab3.dir/main.cpp.s"
 	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/cygdrive/c/cc++ labs/lab3/main.cpp" -o CMakeFiles/lab3.dir/main.cpp.s
 
-CMakeFiles/lab3.dir/myBinaryTree.cpp.o: CMakeFiles/lab3.dir/flags.make
-CMakeFiles/lab3.dir/myBinaryTree.cpp.o: ../myBinaryTree.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/cygdrive/c/cc++ labs/lab3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/lab3.dir/myBinaryTree.cpp.o"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lab3.dir/myBinaryTree.cpp.o -c "/cygdrive/c/cc++ labs/lab3/myBinaryTree.cpp"
+CMakeFiles/lab3.dir/Sources/myBinaryTree.cpp.o: CMakeFiles/lab3.dir/flags.make
+CMakeFiles/lab3.dir/Sources/myBinaryTree.cpp.o: ../Sources/myBinaryTree.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/cygdrive/c/cc++ labs/lab3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/lab3.dir/Sources/myBinaryTree.cpp.o"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lab3.dir/Sources/myBinaryTree.cpp.o -c "/cygdrive/c/cc++ labs/lab3/Sources/myBinaryTree.cpp"
 
-CMakeFiles/lab3.dir/myBinaryTree.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lab3.dir/myBinaryTree.cpp.i"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/cygdrive/c/cc++ labs/lab3/myBinaryTree.cpp" > CMakeFiles/lab3.dir/myBinaryTree.cpp.i
+CMakeFiles/lab3.dir/Sources/myBinaryTree.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lab3.dir/Sources/myBinaryTree.cpp.i"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/cygdrive/c/cc++ labs/lab3/Sources/myBinaryTree.cpp" > CMakeFiles/lab3.dir/Sources/myBinaryTree.cpp.i
 
-CMakeFiles/lab3.dir/myBinaryTree.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lab3.dir/myBinaryTree.cpp.s"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/cygdrive/c/cc++ labs/lab3/myBinaryTree.cpp" -o CMakeFiles/lab3.dir/myBinaryTree.cpp.s
+CMakeFiles/lab3.dir/Sources/myBinaryTree.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lab3.dir/Sources/myBinaryTree.cpp.s"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/cygdrive/c/cc++ labs/lab3/Sources/myBinaryTree.cpp" -o CMakeFiles/lab3.dir/Sources/myBinaryTree.cpp.s
 
-CMakeFiles/lab3.dir/myLinkedList.cpp.o: CMakeFiles/lab3.dir/flags.make
-CMakeFiles/lab3.dir/myLinkedList.cpp.o: ../myLinkedList.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/cygdrive/c/cc++ labs/lab3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/lab3.dir/myLinkedList.cpp.o"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lab3.dir/myLinkedList.cpp.o -c "/cygdrive/c/cc++ labs/lab3/myLinkedList.cpp"
+CMakeFiles/lab3.dir/Sources/myLinkedList.cpp.o: CMakeFiles/lab3.dir/flags.make
+CMakeFiles/lab3.dir/Sources/myLinkedList.cpp.o: ../Sources/myLinkedList.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/cygdrive/c/cc++ labs/lab3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/lab3.dir/Sources/myLinkedList.cpp.o"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lab3.dir/Sources/myLinkedList.cpp.o -c "/cygdrive/c/cc++ labs/lab3/Sources/myLinkedList.cpp"
 
-CMakeFiles/lab3.dir/myLinkedList.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lab3.dir/myLinkedList.cpp.i"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/cygdrive/c/cc++ labs/lab3/myLinkedList.cpp" > CMakeFiles/lab3.dir/myLinkedList.cpp.i
+CMakeFiles/lab3.dir/Sources/myLinkedList.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lab3.dir/Sources/myLinkedList.cpp.i"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/cygdrive/c/cc++ labs/lab3/Sources/myLinkedList.cpp" > CMakeFiles/lab3.dir/Sources/myLinkedList.cpp.i
 
-CMakeFiles/lab3.dir/myLinkedList.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lab3.dir/myLinkedList.cpp.s"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/cygdrive/c/cc++ labs/lab3/myLinkedList.cpp" -o CMakeFiles/lab3.dir/myLinkedList.cpp.s
+CMakeFiles/lab3.dir/Sources/myLinkedList.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lab3.dir/Sources/myLinkedList.cpp.s"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/cygdrive/c/cc++ labs/lab3/Sources/myLinkedList.cpp" -o CMakeFiles/lab3.dir/Sources/myLinkedList.cpp.s
 
-CMakeFiles/lab3.dir/myStack.cpp.o: CMakeFiles/lab3.dir/flags.make
-CMakeFiles/lab3.dir/myStack.cpp.o: ../myStack.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/cygdrive/c/cc++ labs/lab3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/lab3.dir/myStack.cpp.o"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lab3.dir/myStack.cpp.o -c "/cygdrive/c/cc++ labs/lab3/myStack.cpp"
+CMakeFiles/lab3.dir/Sources/myStack.cpp.o: CMakeFiles/lab3.dir/flags.make
+CMakeFiles/lab3.dir/Sources/myStack.cpp.o: ../Sources/myStack.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/cygdrive/c/cc++ labs/lab3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/lab3.dir/Sources/myStack.cpp.o"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lab3.dir/Sources/myStack.cpp.o -c "/cygdrive/c/cc++ labs/lab3/Sources/myStack.cpp"
 
-CMakeFiles/lab3.dir/myStack.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lab3.dir/myStack.cpp.i"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/cygdrive/c/cc++ labs/lab3/myStack.cpp" > CMakeFiles/lab3.dir/myStack.cpp.i
+CMakeFiles/lab3.dir/Sources/myStack.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lab3.dir/Sources/myStack.cpp.i"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/cygdrive/c/cc++ labs/lab3/Sources/myStack.cpp" > CMakeFiles/lab3.dir/Sources/myStack.cpp.i
 
-CMakeFiles/lab3.dir/myStack.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lab3.dir/myStack.cpp.s"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/cygdrive/c/cc++ labs/lab3/myStack.cpp" -o CMakeFiles/lab3.dir/myStack.cpp.s
+CMakeFiles/lab3.dir/Sources/myStack.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lab3.dir/Sources/myStack.cpp.s"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/cygdrive/c/cc++ labs/lab3/Sources/myStack.cpp" -o CMakeFiles/lab3.dir/Sources/myStack.cpp.s
 
-CMakeFiles/lab3.dir/mySet.cpp.o: CMakeFiles/lab3.dir/flags.make
-CMakeFiles/lab3.dir/mySet.cpp.o: ../mySet.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/cygdrive/c/cc++ labs/lab3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/lab3.dir/mySet.cpp.o"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lab3.dir/mySet.cpp.o -c "/cygdrive/c/cc++ labs/lab3/mySet.cpp"
+CMakeFiles/lab3.dir/Sources/mySet.cpp.o: CMakeFiles/lab3.dir/flags.make
+CMakeFiles/lab3.dir/Sources/mySet.cpp.o: ../Sources/mySet.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/cygdrive/c/cc++ labs/lab3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/lab3.dir/Sources/mySet.cpp.o"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lab3.dir/Sources/mySet.cpp.o -c "/cygdrive/c/cc++ labs/lab3/Sources/mySet.cpp"
 
-CMakeFiles/lab3.dir/mySet.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lab3.dir/mySet.cpp.i"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/cygdrive/c/cc++ labs/lab3/mySet.cpp" > CMakeFiles/lab3.dir/mySet.cpp.i
+CMakeFiles/lab3.dir/Sources/mySet.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lab3.dir/Sources/mySet.cpp.i"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/cygdrive/c/cc++ labs/lab3/Sources/mySet.cpp" > CMakeFiles/lab3.dir/Sources/mySet.cpp.i
 
-CMakeFiles/lab3.dir/mySet.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lab3.dir/mySet.cpp.s"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/cygdrive/c/cc++ labs/lab3/mySet.cpp" -o CMakeFiles/lab3.dir/mySet.cpp.s
+CMakeFiles/lab3.dir/Sources/mySet.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lab3.dir/Sources/mySet.cpp.s"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/cygdrive/c/cc++ labs/lab3/Sources/mySet.cpp" -o CMakeFiles/lab3.dir/Sources/mySet.cpp.s
 
-CMakeFiles/lab3.dir/myQueue.cpp.o: CMakeFiles/lab3.dir/flags.make
-CMakeFiles/lab3.dir/myQueue.cpp.o: ../myQueue.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/cygdrive/c/cc++ labs/lab3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/lab3.dir/myQueue.cpp.o"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lab3.dir/myQueue.cpp.o -c "/cygdrive/c/cc++ labs/lab3/myQueue.cpp"
+CMakeFiles/lab3.dir/Sources/myQueue.cpp.o: CMakeFiles/lab3.dir/flags.make
+CMakeFiles/lab3.dir/Sources/myQueue.cpp.o: ../Sources/myQueue.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/cygdrive/c/cc++ labs/lab3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/lab3.dir/Sources/myQueue.cpp.o"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lab3.dir/Sources/myQueue.cpp.o -c "/cygdrive/c/cc++ labs/lab3/Sources/myQueue.cpp"
 
-CMakeFiles/lab3.dir/myQueue.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lab3.dir/myQueue.cpp.i"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/cygdrive/c/cc++ labs/lab3/myQueue.cpp" > CMakeFiles/lab3.dir/myQueue.cpp.i
+CMakeFiles/lab3.dir/Sources/myQueue.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lab3.dir/Sources/myQueue.cpp.i"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/cygdrive/c/cc++ labs/lab3/Sources/myQueue.cpp" > CMakeFiles/lab3.dir/Sources/myQueue.cpp.i
 
-CMakeFiles/lab3.dir/myQueue.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lab3.dir/myQueue.cpp.s"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/cygdrive/c/cc++ labs/lab3/myQueue.cpp" -o CMakeFiles/lab3.dir/myQueue.cpp.s
+CMakeFiles/lab3.dir/Sources/myQueue.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lab3.dir/Sources/myQueue.cpp.s"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/cygdrive/c/cc++ labs/lab3/Sources/myQueue.cpp" -o CMakeFiles/lab3.dir/Sources/myQueue.cpp.s
 
 # Object files for target lab3
 lab3_OBJECTS = \
 "CMakeFiles/lab3.dir/main.cpp.o" \
-"CMakeFiles/lab3.dir/myBinaryTree.cpp.o" \
-"CMakeFiles/lab3.dir/myLinkedList.cpp.o" \
-"CMakeFiles/lab3.dir/myStack.cpp.o" \
-"CMakeFiles/lab3.dir/mySet.cpp.o" \
-"CMakeFiles/lab3.dir/myQueue.cpp.o"
+"CMakeFiles/lab3.dir/Sources/myBinaryTree.cpp.o" \
+"CMakeFiles/lab3.dir/Sources/myLinkedList.cpp.o" \
+"CMakeFiles/lab3.dir/Sources/myStack.cpp.o" \
+"CMakeFiles/lab3.dir/Sources/mySet.cpp.o" \
+"CMakeFiles/lab3.dir/Sources/myQueue.cpp.o"
 
 # External object files for target lab3
 lab3_EXTERNAL_OBJECTS =
 
 lab3.exe: CMakeFiles/lab3.dir/main.cpp.o
-lab3.exe: CMakeFiles/lab3.dir/myBinaryTree.cpp.o
-lab3.exe: CMakeFiles/lab3.dir/myLinkedList.cpp.o
-lab3.exe: CMakeFiles/lab3.dir/myStack.cpp.o
-lab3.exe: CMakeFiles/lab3.dir/mySet.cpp.o
-lab3.exe: CMakeFiles/lab3.dir/myQueue.cpp.o
+lab3.exe: CMakeFiles/lab3.dir/Sources/myBinaryTree.cpp.o
+lab3.exe: CMakeFiles/lab3.dir/Sources/myLinkedList.cpp.o
+lab3.exe: CMakeFiles/lab3.dir/Sources/myStack.cpp.o
+lab3.exe: CMakeFiles/lab3.dir/Sources/mySet.cpp.o
+lab3.exe: CMakeFiles/lab3.dir/Sources/myQueue.cpp.o
 lab3.exe: CMakeFiles/lab3.dir/build.make
 lab3.exe: CMakeFiles/lab3.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/cygdrive/c/cc++ labs/lab3/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable lab3.exe"

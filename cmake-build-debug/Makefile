@@ -142,6 +142,141 @@ lab3/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/build
 .PHONY : lab3/fast
 
+Sources/myBinaryTree.o: Sources/myBinaryTree.cpp.o
+
+.PHONY : Sources/myBinaryTree.o
+
+# target to build an object file
+Sources/myBinaryTree.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/Sources/myBinaryTree.cpp.o
+.PHONY : Sources/myBinaryTree.cpp.o
+
+Sources/myBinaryTree.i: Sources/myBinaryTree.cpp.i
+
+.PHONY : Sources/myBinaryTree.i
+
+# target to preprocess a source file
+Sources/myBinaryTree.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/Sources/myBinaryTree.cpp.i
+.PHONY : Sources/myBinaryTree.cpp.i
+
+Sources/myBinaryTree.s: Sources/myBinaryTree.cpp.s
+
+.PHONY : Sources/myBinaryTree.s
+
+# target to generate assembly for a file
+Sources/myBinaryTree.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/Sources/myBinaryTree.cpp.s
+.PHONY : Sources/myBinaryTree.cpp.s
+
+Sources/myLinkedList.o: Sources/myLinkedList.cpp.o
+
+.PHONY : Sources/myLinkedList.o
+
+# target to build an object file
+Sources/myLinkedList.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/Sources/myLinkedList.cpp.o
+.PHONY : Sources/myLinkedList.cpp.o
+
+Sources/myLinkedList.i: Sources/myLinkedList.cpp.i
+
+.PHONY : Sources/myLinkedList.i
+
+# target to preprocess a source file
+Sources/myLinkedList.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/Sources/myLinkedList.cpp.i
+.PHONY : Sources/myLinkedList.cpp.i
+
+Sources/myLinkedList.s: Sources/myLinkedList.cpp.s
+
+.PHONY : Sources/myLinkedList.s
+
+# target to generate assembly for a file
+Sources/myLinkedList.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/Sources/myLinkedList.cpp.s
+.PHONY : Sources/myLinkedList.cpp.s
+
+Sources/myQueue.o: Sources/myQueue.cpp.o
+
+.PHONY : Sources/myQueue.o
+
+# target to build an object file
+Sources/myQueue.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/Sources/myQueue.cpp.o
+.PHONY : Sources/myQueue.cpp.o
+
+Sources/myQueue.i: Sources/myQueue.cpp.i
+
+.PHONY : Sources/myQueue.i
+
+# target to preprocess a source file
+Sources/myQueue.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/Sources/myQueue.cpp.i
+.PHONY : Sources/myQueue.cpp.i
+
+Sources/myQueue.s: Sources/myQueue.cpp.s
+
+.PHONY : Sources/myQueue.s
+
+# target to generate assembly for a file
+Sources/myQueue.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/Sources/myQueue.cpp.s
+.PHONY : Sources/myQueue.cpp.s
+
+Sources/mySet.o: Sources/mySet.cpp.o
+
+.PHONY : Sources/mySet.o
+
+# target to build an object file
+Sources/mySet.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/Sources/mySet.cpp.o
+.PHONY : Sources/mySet.cpp.o
+
+Sources/mySet.i: Sources/mySet.cpp.i
+
+.PHONY : Sources/mySet.i
+
+# target to preprocess a source file
+Sources/mySet.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/Sources/mySet.cpp.i
+.PHONY : Sources/mySet.cpp.i
+
+Sources/mySet.s: Sources/mySet.cpp.s
+
+.PHONY : Sources/mySet.s
+
+# target to generate assembly for a file
+Sources/mySet.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/Sources/mySet.cpp.s
+.PHONY : Sources/mySet.cpp.s
+
+Sources/myStack.o: Sources/myStack.cpp.o
+
+.PHONY : Sources/myStack.o
+
+# target to build an object file
+Sources/myStack.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/Sources/myStack.cpp.o
+.PHONY : Sources/myStack.cpp.o
+
+Sources/myStack.i: Sources/myStack.cpp.i
+
+.PHONY : Sources/myStack.i
+
+# target to preprocess a source file
+Sources/myStack.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/Sources/myStack.cpp.i
+.PHONY : Sources/myStack.cpp.i
+
+Sources/myStack.s: Sources/myStack.cpp.s
+
+.PHONY : Sources/myStack.s
+
+# target to generate assembly for a file
+Sources/myStack.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/Sources/myStack.cpp.s
+.PHONY : Sources/myStack.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -169,141 +304,6 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/main.cpp.s
 .PHONY : main.cpp.s
 
-myBinaryTree.o: myBinaryTree.cpp.o
-
-.PHONY : myBinaryTree.o
-
-# target to build an object file
-myBinaryTree.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/myBinaryTree.cpp.o
-.PHONY : myBinaryTree.cpp.o
-
-myBinaryTree.i: myBinaryTree.cpp.i
-
-.PHONY : myBinaryTree.i
-
-# target to preprocess a source file
-myBinaryTree.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/myBinaryTree.cpp.i
-.PHONY : myBinaryTree.cpp.i
-
-myBinaryTree.s: myBinaryTree.cpp.s
-
-.PHONY : myBinaryTree.s
-
-# target to generate assembly for a file
-myBinaryTree.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/myBinaryTree.cpp.s
-.PHONY : myBinaryTree.cpp.s
-
-myLinkedList.o: myLinkedList.cpp.o
-
-.PHONY : myLinkedList.o
-
-# target to build an object file
-myLinkedList.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/myLinkedList.cpp.o
-.PHONY : myLinkedList.cpp.o
-
-myLinkedList.i: myLinkedList.cpp.i
-
-.PHONY : myLinkedList.i
-
-# target to preprocess a source file
-myLinkedList.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/myLinkedList.cpp.i
-.PHONY : myLinkedList.cpp.i
-
-myLinkedList.s: myLinkedList.cpp.s
-
-.PHONY : myLinkedList.s
-
-# target to generate assembly for a file
-myLinkedList.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/myLinkedList.cpp.s
-.PHONY : myLinkedList.cpp.s
-
-myQueue.o: myQueue.cpp.o
-
-.PHONY : myQueue.o
-
-# target to build an object file
-myQueue.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/myQueue.cpp.o
-.PHONY : myQueue.cpp.o
-
-myQueue.i: myQueue.cpp.i
-
-.PHONY : myQueue.i
-
-# target to preprocess a source file
-myQueue.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/myQueue.cpp.i
-.PHONY : myQueue.cpp.i
-
-myQueue.s: myQueue.cpp.s
-
-.PHONY : myQueue.s
-
-# target to generate assembly for a file
-myQueue.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/myQueue.cpp.s
-.PHONY : myQueue.cpp.s
-
-mySet.o: mySet.cpp.o
-
-.PHONY : mySet.o
-
-# target to build an object file
-mySet.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/mySet.cpp.o
-.PHONY : mySet.cpp.o
-
-mySet.i: mySet.cpp.i
-
-.PHONY : mySet.i
-
-# target to preprocess a source file
-mySet.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/mySet.cpp.i
-.PHONY : mySet.cpp.i
-
-mySet.s: mySet.cpp.s
-
-.PHONY : mySet.s
-
-# target to generate assembly for a file
-mySet.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/mySet.cpp.s
-.PHONY : mySet.cpp.s
-
-myStack.o: myStack.cpp.o
-
-.PHONY : myStack.o
-
-# target to build an object file
-myStack.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/myStack.cpp.o
-.PHONY : myStack.cpp.o
-
-myStack.i: myStack.cpp.i
-
-.PHONY : myStack.i
-
-# target to preprocess a source file
-myStack.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/myStack.cpp.i
-.PHONY : myStack.cpp.i
-
-myStack.s: myStack.cpp.s
-
-.PHONY : myStack.s
-
-# target to generate assembly for a file
-myStack.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/myStack.cpp.s
-.PHONY : myStack.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -313,24 +313,24 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... lab3"
+	@echo "... Sources/myBinaryTree.o"
+	@echo "... Sources/myBinaryTree.i"
+	@echo "... Sources/myBinaryTree.s"
+	@echo "... Sources/myLinkedList.o"
+	@echo "... Sources/myLinkedList.i"
+	@echo "... Sources/myLinkedList.s"
+	@echo "... Sources/myQueue.o"
+	@echo "... Sources/myQueue.i"
+	@echo "... Sources/myQueue.s"
+	@echo "... Sources/mySet.o"
+	@echo "... Sources/mySet.i"
+	@echo "... Sources/mySet.s"
+	@echo "... Sources/myStack.o"
+	@echo "... Sources/myStack.i"
+	@echo "... Sources/myStack.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... myBinaryTree.o"
-	@echo "... myBinaryTree.i"
-	@echo "... myBinaryTree.s"
-	@echo "... myLinkedList.o"
-	@echo "... myLinkedList.i"
-	@echo "... myLinkedList.s"
-	@echo "... myQueue.o"
-	@echo "... myQueue.i"
-	@echo "... myQueue.s"
-	@echo "... mySet.o"
-	@echo "... mySet.i"
-	@echo "... mySet.s"
-	@echo "... myStack.o"
-	@echo "... myStack.i"
-	@echo "... myStack.s"
 .PHONY : help
 
 
