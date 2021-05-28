@@ -1,29 +1,10 @@
-#include "sources/myBinaryTree.h"
-#include "sources/mySet.h"
+#include "Headers/myBinaryTree.h"
+#include "Headers/mySet.h"
+#include "tests/test.h"
 
 #include <iostream>
 #include <ctime>
-
-void func1(std::string str1) {
-    char c;
-    for (int i = 0; i < str1.length(); i++) {
-        c = str1[i];
-    }
-}
-
-void func2(const std::string& str1) {
-    char c;
-    for (int i = 0; i < str1.length(); i++) {
-        c = str1[i];
-    }
-}
-
-void func3(std::string* str1) {
-    char c;
-    for (int i = 0; i < str1->length(); i++) {
-        c = str1->operator[](i);
-    }
-}
+#include "menuSet.h"
 
 using namespace std;
 int main() {
@@ -59,24 +40,21 @@ int main() {
 
     return 0;
 */
-    mySet<int> set1, set2;
-    for (int i = 0; i < 20; i++) {
-        set1.add(i);
-        set2.add(i*2);
+
+    cout << "☺☻☼" << endl;//│ ├  └
+
+    myBinaryTree<int, int> binaryTree;
+    for (int i = 0; i <= 200; i+=2) {
+        binaryTree.insert(i, i);
     }
 
-    cout << set1 << endl << set2 << endl;
-    cout << set1 + set2 << endl;
-    cout << set1 * set2 << endl;
-    cout << set1 - set2 << endl;
-    cout << (set1 xor set2 ) << endl;
+    int n = 0;
+    for (auto &i : binaryTree) {
+        cout << i << '\n';
+        n++;
+    }
+    cout << endl;
 
-    myBinaryTree<int, int> tree;
-    for (int i = 0; i < 20; i++)
-        tree.insert(i, i);
-
-    cout << tree.strLikeList() << endl;
-    cout << tree << endl;
-
+    mainMenu();
     return 0;
 }

@@ -5,7 +5,7 @@
 #ifndef LAB2_MYARRAYSEQUENCE_H
 #define LAB2_MYARRAYSEQUENCE_H
 
-#include "../headers/myDynamicArray.cpp"
+#include "../Sources/myDynamicArray.cpp"
 
 template<class T>
 class myArraySequence {

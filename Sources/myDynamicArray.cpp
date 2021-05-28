@@ -2,7 +2,7 @@
 // Created by Grisha on 09.03.2021.
 //
 
-#include "../sources/myDynamicArray.h"
+#include "../Headers/myDynamicArray.h"
 
 #ifndef LAB2_MYDYNAMICARRAY_CPP
 #define LAB2_MYDYNAMICARRAY_CPP

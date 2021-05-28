@@ -107,6 +107,12 @@
 		<Unit filename="/cygdrive/c/cc++ labs/lab3/main.cpp">
 			<Option target="lab3"/>
 		</Unit>
+		<Unit filename="/cygdrive/c/cc++ labs/lab3/tests/test.cpp">
+			<Option target="lab3"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/cc++ labs/lab3/tests/test.h">
+			<Option target="lab3"/>
+		</Unit>
 		<Unit filename="/cygdrive/c/cc++ labs/lab3/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
