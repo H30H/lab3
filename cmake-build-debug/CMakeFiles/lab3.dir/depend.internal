@@ -34,6 +34,9 @@ CMakeFiles/lab3.dir/Sources/myStack.cpp.o
  /cygdrive/c/cc++ labs/lab3/Headers/myStack.h
  /cygdrive/c/cc++ labs/lab3/Sources/myLinkedList.cpp
  /cygdrive/c/cc++ labs/lab3/Sources/myStack.cpp
+CMakeFiles/lab3.dir/funcForMenu.cpp.o
+ /cygdrive/c/cc++ labs/lab3/funcForMenu.cpp
+ /cygdrive/c/cc++ labs/lab3/funcForMenu.h
 CMakeFiles/lab3.dir/main.cpp.o
  /cygdrive/c/cc++ labs/lab3/Headers/myArraySequence.h
  /cygdrive/c/cc++ labs/lab3/Headers/myBinaryTree.h
@@ -44,10 +47,12 @@ CMakeFiles/lab3.dir/main.cpp.o
  /cygdrive/c/cc++ labs/lab3/Headers/myStack.h
  /cygdrive/c/cc++ labs/lab3/Sources/myDynamicArray.cpp
  /cygdrive/c/cc++ labs/lab3/Sources/myLinkedList.cpp
+ /cygdrive/c/cc++ labs/lab3/funcForMenu.h
  /cygdrive/c/cc++ labs/lab3/main.cpp
- /cygdrive/c/cc++ labs/lab3/menu.h
+ /cygdrive/c/cc++ labs/lab3/menuSet.h
+ /cygdrive/c/cc++ labs/lab3/menuTree.h
  /cygdrive/c/cc++ labs/lab3/tests/test.h
-CMakeFiles/lab3.dir/menu.cpp.o
+CMakeFiles/lab3.dir/menuSet.cpp.o
  /cygdrive/c/cc++ labs/lab3/Headers/myArraySequence.h
  /cygdrive/c/cc++ labs/lab3/Headers/myBinaryTree.h
  /cygdrive/c/cc++ labs/lab3/Headers/myDynamicArray.h
@@ -57,8 +62,23 @@ CMakeFiles/lab3.dir/menu.cpp.o
  /cygdrive/c/cc++ labs/lab3/Headers/myStack.h
  /cygdrive/c/cc++ labs/lab3/Sources/myDynamicArray.cpp
  /cygdrive/c/cc++ labs/lab3/Sources/myLinkedList.cpp
- /cygdrive/c/cc++ labs/lab3/menu.cpp
- /cygdrive/c/cc++ labs/lab3/menu.h
+ /cygdrive/c/cc++ labs/lab3/funcForMenu.h
+ /cygdrive/c/cc++ labs/lab3/menuSet.cpp
+ /cygdrive/c/cc++ labs/lab3/menuSet.h
+ /cygdrive/c/cc++ labs/lab3/tests/test.h
+CMakeFiles/lab3.dir/menuTree.cpp.o
+ /cygdrive/c/cc++ labs/lab3/Headers/myArraySequence.h
+ /cygdrive/c/cc++ labs/lab3/Headers/myBinaryTree.h
+ /cygdrive/c/cc++ labs/lab3/Headers/myDynamicArray.h
+ /cygdrive/c/cc++ labs/lab3/Headers/myLinkedList.h
+ /cygdrive/c/cc++ labs/lab3/Headers/myQueue.h
+ /cygdrive/c/cc++ labs/lab3/Headers/mySet.h
+ /cygdrive/c/cc++ labs/lab3/Headers/myStack.h
+ /cygdrive/c/cc++ labs/lab3/Sources/myDynamicArray.cpp
+ /cygdrive/c/cc++ labs/lab3/Sources/myLinkedList.cpp
+ /cygdrive/c/cc++ labs/lab3/funcForMenu.h
+ /cygdrive/c/cc++ labs/lab3/menuTree.cpp
+ /cygdrive/c/cc++ labs/lab3/menuTree.h
  /cygdrive/c/cc++ labs/lab3/tests/test.h
 CMakeFiles/lab3.dir/tests/test.cpp.o
  /cygdrive/c/cc++ labs/lab3/Headers/myArraySequence.h

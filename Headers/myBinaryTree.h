@@ -105,6 +105,8 @@ public:
         myStack<Node<K, T>*> *stack = nullptr;
         Node<K, T> *now = nullptr;
     public:
+        myIterator() {}
+
         myIterator(myBinaryTree<K, T> *tree) {
             binaryTree = tree;
             stack = new myStack<Node<K, T>*>;
@@ -178,6 +180,7 @@ public:
             return now->data;
         }
     };
+
 private:
     Node<K, T> *head;
     short int _isCopy_ = 0;
@@ -304,9 +307,9 @@ private:
         return res1;
     }
 public:
-    myBinaryTree(): head(nullptr), iterator(this) {}
+    myBinaryTree(): head(nullptr), iterator(myIterator<K, T>(this)) {}
 
-    explicit myBinaryTree(Node<K, T> *element): head(element), _isCopy_(1), iterator(this) {}
+    explicit myBinaryTree(Node<K, T> *element): head(element), _isCopy_(1), iterator(myIterator<K, T>(this)) {}
 
     void Delete() {
         if (head == nullptr)
@@ -322,12 +325,26 @@ public:
         head = nullptr;
     }
 
-    myBinaryTree(K key, T data) {
+    myBinaryTree(const K& key, const T& data) {
         auto *res = new Node<K, T>;
         res->key = key;
         res->data = data;
         head = res;
-        iterator(this);
+        iterator = myIterator<K, T>(this);
+    }
+
+    myBinaryTree(const myArraySequence<K>& keys, const myArraySequence<T>& elements) {
+        auto len1 = keys.length(), len2 = elements.length();
+
+        auto min = len1 > len2 ? len2 : len1;
+
+        for (int i = 0; i < min; i++) {
+            auto key = keys.get(i);
+            auto element = elements.get(i);
+            insert(key, element);
+        }
+
+        iterator = myIterator<K, T>(this);
     }
     
 
@@ -347,7 +364,7 @@ public:
         return myBinaryTree<K, T>(head->right).find(key);
     }
 
-    myBinaryTree<K, T>* insert(T data, K key) {
+    myBinaryTree<K, T>* insert(const K& key, const T& data) {
         if (head == nullptr) {
             head = new Node<K, T>;
             head->data = data;

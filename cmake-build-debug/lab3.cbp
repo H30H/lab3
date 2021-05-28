@@ -104,13 +104,25 @@
 		<Unit filename="/cygdrive/c/cc++ labs/lab3/Sources/myStack.cpp">
 			<Option target="lab3"/>
 		</Unit>
+		<Unit filename="/cygdrive/c/cc++ labs/lab3/funcForMenu.cpp">
+			<Option target="lab3"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/cc++ labs/lab3/funcForMenu.h">
+			<Option target="lab3"/>
+		</Unit>
 		<Unit filename="/cygdrive/c/cc++ labs/lab3/main.cpp">
 			<Option target="lab3"/>
 		</Unit>
-		<Unit filename="/cygdrive/c/cc++ labs/lab3/menu.cpp">
+		<Unit filename="/cygdrive/c/cc++ labs/lab3/menuSet.cpp">
 			<Option target="lab3"/>
 		</Unit>
-		<Unit filename="/cygdrive/c/cc++ labs/lab3/menu.h">
+		<Unit filename="/cygdrive/c/cc++ labs/lab3/menuSet.h">
+			<Option target="lab3"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/cc++ labs/lab3/menuTree.cpp">
+			<Option target="lab3"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/cc++ labs/lab3/menuTree.h">
 			<Option target="lab3"/>
 		</Unit>
 		<Unit filename="/cygdrive/c/cc++ labs/lab3/tests/test.cpp">

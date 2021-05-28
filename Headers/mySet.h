@@ -11,23 +11,23 @@
 template <class T>
 class mySet {
 private:
-    myBinaryTree<T, char> elements;
+    myBinaryTree<char, T> elements;
 public:
     class IsEmpty {};
 
     mySet() {
-        elements = myBinaryTree<T, char>();
+        elements = myBinaryTree<char, T>();
     }
 
     explicit mySet(T item) {
-        elements = myBinaryTree<T, char>();
-        elements.insert(0, item);
+        elements = myBinaryTree<char, T>();
+        elements.insert(item, 0);
     }
 
     mySet(T* items, int count) {
-        elements = myBinaryTree<T, char>();
+        elements = myBinaryTree<char, T>();
         for (int i = 0; i < count; i++) {
-            elements.insert(0, items[i]);
+            elements.insert(items[i], 0);
         }
     }
 
@@ -37,7 +37,7 @@ public:
 
     explicit mySet(const myArraySequence<T> &arraySequence) {
         for (auto &i : arraySequence) {
-            elements.insert(0, i);
+            elements.insert(i, 0);
         }
     }
 
@@ -50,22 +50,21 @@ public:
     }
 
     void add(T element) {
-        elements.insert(0, element);
+        elements.insert(element, 0);
     }
 
     void remove(T element) {
         try {
             elements.remove(element);
         }
-        catch (typename myBinaryTree<T, char>::InvalidKeyword error) {
-            return;
+        catch (typename myBinaryTree<char, T>::InvalidKeyword error) {
         }
     }
 
     int length() const {
-        auto *keys = elements.getKeys();
-        int res = keys->length();
-        delete keys;
+        auto *items = elements.getValues();
+        int res = items->length();
+        delete items;
         return res;
     }
 
@@ -74,7 +73,7 @@ public:
             elements.find(element);
             return 1;
         }
-        catch (typename myBinaryTree<T, char>::InvalidKeyword error) {
+        catch (typename myBinaryTree<char, T>::InvalidKeyword error) {
             return 0;
         }
     }

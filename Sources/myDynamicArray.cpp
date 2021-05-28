@@ -72,13 +72,15 @@ myDynamicArray<T>::~myDynamicArray() {      //удаление массива
 }
 
 template<class T>
-int myDynamicArray<T>::length() {           //вывод длины массива
+int myDynamicArray<T>::length() const {           //вывод длины массива
     return len;
 }
 
 template<class T>
-T myDynamicArray<T>::get(int index) {       //получение элемента по индексу
-    return (*this)[index];
+T myDynamicArray<T>::get(int index) const {       //получение элемента по индексу
+    if (index < 0 || index >= len) throw IndexOutOfRange(len, index);  //исключение выхода за массив
+
+    return arr[index];
 }
 
 template<class T>

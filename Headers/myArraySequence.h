@@ -40,17 +40,17 @@ public:
         dynamicArray = array;
     }
 
-    T getFirst() {
+    T getFirst() const {
         if (length() == 0) throw IndexOutOfRange(length(), 0);
         return dynamicArray[0];
     }
 
-    T getLast() {
+    T getLast() const {
         if (length() == 0) throw IndexOutOfRange(length(), -1);
         return dynamicArray[dynamicArray.length() - 1];
     }
 
-    T get(int index) {
+    T get(int index) const {
         if (index < 0 || index >= length()) throw IndexOutOfRange(length(), index);
         return dynamicArray.get(index);
     }
@@ -103,7 +103,7 @@ public:
         return this;
     }
 
-    int operator == (myArraySequence<T> arraySequence) {
+    int operator == (myArraySequence<T> arraySequence) const {
         return dynamicArray == arraySequence.dynamicArray;
     }
 
@@ -123,7 +123,7 @@ public:
         return newArray;
     }
 
-    int length() {
+    int length() const {
         return dynamicArray.length();
     }
 
@@ -304,11 +304,11 @@ public:
         return res;
     }
 
-    int find(T item) {
+    int find(T item) const {
         return dynamicArray.find(item);
     }
 
-    int find(myArraySequence<T> *sequence) {
+    int find(myArraySequence<T> *sequence) const {
         myDynamicArray<T> array;
         array.resize(sequence->length());
         for (int i = 0; i < array.length(); i++) {

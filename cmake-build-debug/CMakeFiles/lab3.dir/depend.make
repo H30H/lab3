@@ -34,6 +34,9 @@ CMakeFiles/lab3.dir/Sources/myStack.cpp.o: ../Headers/myStack.h
 CMakeFiles/lab3.dir/Sources/myStack.cpp.o: ../Sources/myLinkedList.cpp
 CMakeFiles/lab3.dir/Sources/myStack.cpp.o: ../Sources/myStack.cpp
 
+CMakeFiles/lab3.dir/funcForMenu.cpp.o: ../funcForMenu.cpp
+CMakeFiles/lab3.dir/funcForMenu.cpp.o: ../funcForMenu.h
+
 CMakeFiles/lab3.dir/main.cpp.o: ../Headers/myArraySequence.h
 CMakeFiles/lab3.dir/main.cpp.o: ../Headers/myBinaryTree.h
 CMakeFiles/lab3.dir/main.cpp.o: ../Headers/myDynamicArray.h
@@ -43,22 +46,39 @@ CMakeFiles/lab3.dir/main.cpp.o: ../Headers/mySet.h
 CMakeFiles/lab3.dir/main.cpp.o: ../Headers/myStack.h
 CMakeFiles/lab3.dir/main.cpp.o: ../Sources/myDynamicArray.cpp
 CMakeFiles/lab3.dir/main.cpp.o: ../Sources/myLinkedList.cpp
+CMakeFiles/lab3.dir/main.cpp.o: ../funcForMenu.h
 CMakeFiles/lab3.dir/main.cpp.o: ../main.cpp
-CMakeFiles/lab3.dir/main.cpp.o: ../menu.h
+CMakeFiles/lab3.dir/main.cpp.o: ../menuSet.h
+CMakeFiles/lab3.dir/main.cpp.o: ../menuTree.h
 CMakeFiles/lab3.dir/main.cpp.o: ../tests/test.h
 
-CMakeFiles/lab3.dir/menu.cpp.o: ../Headers/myArraySequence.h
-CMakeFiles/lab3.dir/menu.cpp.o: ../Headers/myBinaryTree.h
-CMakeFiles/lab3.dir/menu.cpp.o: ../Headers/myDynamicArray.h
-CMakeFiles/lab3.dir/menu.cpp.o: ../Headers/myLinkedList.h
-CMakeFiles/lab3.dir/menu.cpp.o: ../Headers/myQueue.h
-CMakeFiles/lab3.dir/menu.cpp.o: ../Headers/mySet.h
-CMakeFiles/lab3.dir/menu.cpp.o: ../Headers/myStack.h
-CMakeFiles/lab3.dir/menu.cpp.o: ../Sources/myDynamicArray.cpp
-CMakeFiles/lab3.dir/menu.cpp.o: ../Sources/myLinkedList.cpp
-CMakeFiles/lab3.dir/menu.cpp.o: ../menu.cpp
-CMakeFiles/lab3.dir/menu.cpp.o: ../menu.h
-CMakeFiles/lab3.dir/menu.cpp.o: ../tests/test.h
+CMakeFiles/lab3.dir/menuSet.cpp.o: ../Headers/myArraySequence.h
+CMakeFiles/lab3.dir/menuSet.cpp.o: ../Headers/myBinaryTree.h
+CMakeFiles/lab3.dir/menuSet.cpp.o: ../Headers/myDynamicArray.h
+CMakeFiles/lab3.dir/menuSet.cpp.o: ../Headers/myLinkedList.h
+CMakeFiles/lab3.dir/menuSet.cpp.o: ../Headers/myQueue.h
+CMakeFiles/lab3.dir/menuSet.cpp.o: ../Headers/mySet.h
+CMakeFiles/lab3.dir/menuSet.cpp.o: ../Headers/myStack.h
+CMakeFiles/lab3.dir/menuSet.cpp.o: ../Sources/myDynamicArray.cpp
+CMakeFiles/lab3.dir/menuSet.cpp.o: ../Sources/myLinkedList.cpp
+CMakeFiles/lab3.dir/menuSet.cpp.o: ../funcForMenu.h
+CMakeFiles/lab3.dir/menuSet.cpp.o: ../menuSet.cpp
+CMakeFiles/lab3.dir/menuSet.cpp.o: ../menuSet.h
+CMakeFiles/lab3.dir/menuSet.cpp.o: ../tests/test.h
+
+CMakeFiles/lab3.dir/menuTree.cpp.o: ../Headers/myArraySequence.h
+CMakeFiles/lab3.dir/menuTree.cpp.o: ../Headers/myBinaryTree.h
+CMakeFiles/lab3.dir/menuTree.cpp.o: ../Headers/myDynamicArray.h
+CMakeFiles/lab3.dir/menuTree.cpp.o: ../Headers/myLinkedList.h
+CMakeFiles/lab3.dir/menuTree.cpp.o: ../Headers/myQueue.h
+CMakeFiles/lab3.dir/menuTree.cpp.o: ../Headers/mySet.h
+CMakeFiles/lab3.dir/menuTree.cpp.o: ../Headers/myStack.h
+CMakeFiles/lab3.dir/menuTree.cpp.o: ../Sources/myDynamicArray.cpp
+CMakeFiles/lab3.dir/menuTree.cpp.o: ../Sources/myLinkedList.cpp
+CMakeFiles/lab3.dir/menuTree.cpp.o: ../funcForMenu.h
+CMakeFiles/lab3.dir/menuTree.cpp.o: ../menuTree.cpp
+CMakeFiles/lab3.dir/menuTree.cpp.o: ../menuTree.h
+CMakeFiles/lab3.dir/menuTree.cpp.o: ../tests/test.h
 
 CMakeFiles/lab3.dir/tests/test.cpp.o: ../Headers/myArraySequence.h
 CMakeFiles/lab3.dir/tests/test.cpp.o: ../Headers/myBinaryTree.h

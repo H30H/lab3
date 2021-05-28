@@ -3,45 +3,8 @@
 //
 
 #include "menuSet.h"
-#include "random"
-
-#define maxInt 10000
 
 using namespace std;
-
-int getInt() {
-    int k;
-    cin >> k;
-    return k;
-}
-
-int getInt(int up) {
-    int k;
-    cin >> k;
-    if (k > up) {
-        cout << "Число вне диапозона. Повторите попытку\n";
-        return getInt(up);
-    }
-    return k;
-}
-
-int getInt(int down, int up) {
-    int k;
-    cin >> k;
-    if (k > up || k < down) {
-        cout << "Число вне диапозона. Повторите попытку\n";
-        return getInt(down, up);
-    }
-    return k;
-}
-
-int randomInt() {
-    return rand()%maxInt;
-}
-
-float randomFloat() {
-    return (float)randomInt() + (float)randomInt()/(float)randomInt();
-}
 
 template<class T>
 void printArr(myArraySequence<mySet<T>*> *arr) {
@@ -51,7 +14,7 @@ void printArr(myArraySequence<mySet<T>*> *arr) {
     cout << endl;
 }
 
-void mainMenu() {
+void mainMenuSet() {
     myArraySequence<mySet<int>*>          arrInt;
     myArraySequence<mySet<float>*>        arrFloat;
     int item;
@@ -62,7 +25,7 @@ void mainMenu() {
              << "\t3: Вывести множество в консоль\n"
              << "\t4: Удалить или переместить множества в памяти\n"
              << "\t5: Запустить функцию тестирования множеств\n"
-             << "\t6: Закончить выполнение программы\n"
+             << "\t6: Закончить выполнение функции\n"
              << "Введите число: ";
         cin >> item;
         if (item < 1 || item > 6) {
@@ -78,7 +41,7 @@ void mainMenu() {
             case 2: operationWithSet(&arrInt, &arrFloat); break;
             case 3: printSet(&arrInt, &arrFloat); break;
             case 4: deleteSet(&arrInt, &arrFloat); break;
-            case 5: testFunc(); break;
+            case 5: testFuncSet(); break;
             default: break;
         }
     }
@@ -90,15 +53,6 @@ void mainMenu() {
     for (auto &i : arrFloat) {
         delete i;
     }
-}
-
-int getType() {
-    cout << "Введите число для работы со следующим типом данных: \n"
-         << "\t1: int\n"
-         << "\t2: float\n"
-         << "\t0: Выйти из функции\n"
-         << ": ";
-    return getInt(0, 2);
 }
 
 //1
@@ -438,7 +392,7 @@ void deleteTypeSet(myArraySequence<mySet<T>*> *arr) {
 }
 
 //5
-void testFunc() {
+void testFuncSet() {
     cout << "Введите:\n"
             "\t- положительное число для ввода итераций тестов\n"
             "\t- нуль или отрицательное число для выхода\n: ";
@@ -453,7 +407,7 @@ void testFunc() {
             "\t1 - да\n: ";
     count = getInt(0, 1);
     if (count == 1)
-        testFunc();
+        testFuncSet();
 }
 
 #define funcTemplate(T) \

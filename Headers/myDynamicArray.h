@@ -40,11 +40,11 @@ public:
 
     ~myDynamicArray();
 
-    int length();
+    int length() const;
 
-    T get(int index);
+    T get(int index) const;
 
-    int getSize() {
+    int getSize() const {
         return size;
     }
 
@@ -79,7 +79,7 @@ public:
         return *this;
     }
 
-    int operator == (myDynamicArray<T> dynamicArray) {
+    int operator == (myDynamicArray<T> dynamicArray) const {
         if (len != dynamicArray.length()) return 0;
 
         for (int i = 0; i < len; i++) {
@@ -133,7 +133,7 @@ public:
         return res;
     }
 
-    int find(T item) {
+    int find(T item) const {
         if (len == 0) throw  IndexOutOfRange(0, 0);
 
         for (int i = 0; i < len; i++) {
@@ -143,7 +143,7 @@ public:
         return -1;
     }
 
-    int find(const myDynamicArray<T> *dynamicArray) {
+    int find(const myDynamicArray<T> *dynamicArray) const {
         if (len == 0) throw IndexOutOfRange(0, 0);
         if (dynamicArray->len == 0) throw IndexOutOfRange(0, 0);
 

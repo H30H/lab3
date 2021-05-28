@@ -277,6 +277,33 @@ Sources/myStack.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/Sources/myStack.cpp.s
 .PHONY : Sources/myStack.cpp.s
 
+funcForMenu.o: funcForMenu.cpp.o
+
+.PHONY : funcForMenu.o
+
+# target to build an object file
+funcForMenu.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/funcForMenu.cpp.o
+.PHONY : funcForMenu.cpp.o
+
+funcForMenu.i: funcForMenu.cpp.i
+
+.PHONY : funcForMenu.i
+
+# target to preprocess a source file
+funcForMenu.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/funcForMenu.cpp.i
+.PHONY : funcForMenu.cpp.i
+
+funcForMenu.s: funcForMenu.cpp.s
+
+.PHONY : funcForMenu.s
+
+# target to generate assembly for a file
+funcForMenu.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/funcForMenu.cpp.s
+.PHONY : funcForMenu.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -304,32 +331,59 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/main.cpp.s
 .PHONY : main.cpp.s
 
-menu.o: menu.cpp.o
+menuSet.o: menuSet.cpp.o
 
-.PHONY : menu.o
+.PHONY : menuSet.o
 
 # target to build an object file
-menu.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/menu.cpp.o
-.PHONY : menu.cpp.o
+menuSet.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/menuSet.cpp.o
+.PHONY : menuSet.cpp.o
 
-menu.i: menu.cpp.i
+menuSet.i: menuSet.cpp.i
 
-.PHONY : menu.i
+.PHONY : menuSet.i
 
 # target to preprocess a source file
-menu.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/menu.cpp.i
-.PHONY : menu.cpp.i
+menuSet.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/menuSet.cpp.i
+.PHONY : menuSet.cpp.i
 
-menu.s: menu.cpp.s
+menuSet.s: menuSet.cpp.s
 
-.PHONY : menu.s
+.PHONY : menuSet.s
 
 # target to generate assembly for a file
-menu.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/menu.cpp.s
-.PHONY : menu.cpp.s
+menuSet.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/menuSet.cpp.s
+.PHONY : menuSet.cpp.s
+
+menuTree.o: menuTree.cpp.o
+
+.PHONY : menuTree.o
+
+# target to build an object file
+menuTree.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/menuTree.cpp.o
+.PHONY : menuTree.cpp.o
+
+menuTree.i: menuTree.cpp.i
+
+.PHONY : menuTree.i
+
+# target to preprocess a source file
+menuTree.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/menuTree.cpp.i
+.PHONY : menuTree.cpp.i
+
+menuTree.s: menuTree.cpp.s
+
+.PHONY : menuTree.s
+
+# target to generate assembly for a file
+menuTree.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab3.dir/build.make CMakeFiles/lab3.dir/menuTree.cpp.s
+.PHONY : menuTree.cpp.s
 
 tests/test.o: tests/test.cpp.o
 
@@ -382,12 +436,18 @@ help:
 	@echo "... Sources/myStack.o"
 	@echo "... Sources/myStack.i"
 	@echo "... Sources/myStack.s"
+	@echo "... funcForMenu.o"
+	@echo "... funcForMenu.i"
+	@echo "... funcForMenu.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... menu.o"
-	@echo "... menu.i"
-	@echo "... menu.s"
+	@echo "... menuSet.o"
+	@echo "... menuSet.i"
+	@echo "... menuSet.s"
+	@echo "... menuTree.o"
+	@echo "... menuTree.i"
+	@echo "... menuTree.s"
 	@echo "... tests/test.o"
 	@echo "... tests/test.i"
 	@echo "... tests/test.s"

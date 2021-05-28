@@ -5,6 +5,7 @@
 #include <iostream>
 #include <ctime>
 #include "menuSet.h"
+#include "menuTree.h"
 
 using namespace std;
 int main() {
@@ -40,19 +41,25 @@ int main() {
 
     return 0;
 */
+    while (true) {
+        cout << "Введите номер для выбора режима работы меню:\n"
+                "\t0: для выхода из программы\n"
+                "\t1: для работы с бинарным деревом\n"
+                "\t2: для работы с множеством\n: ";
+        int item = getInt(0, 2);
+        if (item == 0)
+            break;
 
-    myBinaryTree<int, int> binaryTree;
-    for (int i = 0; i <= 200; i+=2) {
-        binaryTree.insert(i, i);
+        switch (item) {
+            default: break;
+            case 1:
+                mainMenuBinaryTree();
+                break;
+            case 2:
+                mainMenuSet();
+                break;
+        }
+
     }
-
-    int n = 0;
-    for (auto &i : binaryTree) {
-        cout << i << '\n';
-        n++;
-    }
-    cout << endl;
-
-    mainMenu();
     return 0;
 }
