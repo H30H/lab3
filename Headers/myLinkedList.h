@@ -113,17 +113,17 @@ public:
     T pop(int index);
 
     void Delete() {
-        Element *next = head;
-        while (next != nullptr) {
-            head = next;
-            next = head->next;
-            delete head;
+        Element *element;
+        while (head != nullptr) {
+            element = head;
+            head = head->next;
+            delete element;
         }
-        head = nullptr;
         ending = nullptr;
+        len = 0;
     }
 
-    myLinkedList<T>& operator = (myLinkedList<T> linkedList) {
+    myLinkedList<T>& operator = (const myLinkedList<T>& linkedList) {
         Delete();
 
         for (element *elem = linkedList.head; elem; append(elem->data), elem = elem->next);

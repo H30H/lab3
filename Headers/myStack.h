@@ -16,6 +16,10 @@ public:
 
     myStack() = default;
 
+    myStack(const myStack<T>& stack): elements(stack.elements) {}
+
+    explicit myStack(myStack<T>* stack): elements(stack->elements) {}
+
     explicit myStack(T element): elements(myLinkedList<T>(element)) {}
 
     explicit myStack(myLinkedList<T> *list): elements(*list) {}

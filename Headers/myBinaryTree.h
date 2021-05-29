@@ -28,6 +28,8 @@ public:
         Node *left = nullptr;
         Node *right = nullptr;
 
+        Node(K key1, T data1): key(key1), data(data1) {}
+
         Node& operator = (const Node& br) {
             key = br.key;
             data = br.key;
@@ -105,7 +107,7 @@ public:
         myStack<Node<K, T>*> *stack = nullptr;
         Node<K, T> *now = nullptr;
     public:
-        myIterator() {}
+        myIterator(): stack(new myStack<Node<K, T>*>) {}
 
         myIterator(myBinaryTree<K, T> *tree) {
             binaryTree = tree;
@@ -114,20 +116,21 @@ public:
 
         myIterator(myBinaryTree<K, T> *tree, myStack<Node<K, T>*>* Stack, Node<K, T> *elem) {
             binaryTree = tree;
-            stack = Stack;
+            stack = new myStack<Node<K, T>*>(Stack);
             now = elem;
         }
 
         myIterator(const myIterator<K, T>& iter) {
             binaryTree = iter.binaryTree;
-            delete stack;
-            stack = iter.stack;
+            stack = new myStack<Node<K, T>*>(iter.stack);
             now = iter.now;
         }
 
         ~myIterator() {
-            delete stack;
+            if (stack)
+                delete stack;
         }
+
 
         myIterator<K, T>& begin() {
             now = binaryTree->head;
@@ -179,12 +182,10 @@ public:
             return now->data;
         }
     };
-
+    /**/
 private:
     Node<K, T> *head;
     short int _isCopy_ = 0;
-
-    myIterator<K, T> iterator;
 
     ///Функции для работы преобразования в строку
 
@@ -331,9 +332,9 @@ private:
     }
 
 public:
-    myBinaryTree(): head(nullptr), iterator(myIterator<K, T>(this)) {}
+    myBinaryTree(): head(nullptr) {}
 
-    explicit myBinaryTree(Node<K, T> *element): head(element), _isCopy_(1), iterator(myIterator<K, T>(this)) {}
+    explicit myBinaryTree(Node<K, T> *element): head(element), _isCopy_(1) {}
 
     void Delete() {
         if (head == nullptr)
@@ -354,12 +355,11 @@ public:
         res->key = key;
         res->data = data;
         head = res;
-        iterator = myIterator<K, T>(this);
     }
 
     myBinaryTree(const myArraySequence<K>& keys, const myArraySequence<T>& elements) {
         auto len1 = keys.length(), len2 = elements.length();
-
+        head = nullptr;
         auto min = len1 > len2 ? len2 : len1;
 
         for (int i = 0; i < min; i++) {
@@ -367,8 +367,6 @@ public:
             T element = elements.get(i);
             insert(key, element);
         }
-
-        iterator = myIterator<K, T>(this);
     }
     
 
@@ -376,6 +374,7 @@ public:
         if (!_isCopy_)
             Delete();
     }
+
 
     T find(K key) const {
         if (head == nullptr) throw InvalidKeyword(key);
@@ -390,9 +389,7 @@ public:
 
     myBinaryTree<K, T>* insert(K key, T data) {
         if (head == nullptr) {
-            head = new Node<K, T>;
-            head->data = data;
-            head->key = key;
+            head = new Node<K, T>(key, data);
             return this;
         }
 
@@ -402,19 +399,20 @@ public:
         }
 
         if (key < head->key) {
-            head->left = myBinaryTree<K, T>(head->left).insert(data, key)->head;
+            head->left = myBinaryTree<K, T>(head->left).insert(key, data)->head;
         }
         else {
-            head->right = myBinaryTree<K, T>(head->right).insert(data, key)->head;
+            head->right = myBinaryTree<K, T>(head->right).insert(key, data)->head;
         }
 
-        int leftVal = head->left == nullptr ? 0 : head->left->height;
-        int rightVal = head->right == nullptr ? 0 : head->right->height;
-        int maxVal = rightVal > leftVal ? rightVal : leftVal;
+//        int leftVal = head->left == nullptr ? 0 : head->left->height;
+//        int rightVal = head->right == nullptr ? 0 : head->right->height;
+//        int maxVal = rightVal > leftVal ? rightVal : leftVal;
+        head->updateHeight();
         int delta = head->getDelta();
 
         if (delta <= 1 && delta >= -1) {
-            head->height = maxVal + 1;
+//            head->height = maxVal + 1;
             return this;
         }
         head = head->balance();
@@ -584,7 +582,7 @@ public:
 
         while(queue.length() != 0) {
             auto *nodeRes = queue.get();
-            insert(nodeRes->data, nodeRes->key);
+            insert(nodeRes->key, nodeRes->data);
             if (nodeRes->left != nullptr)
                 queue.add(nodeRes->left);
 
@@ -721,14 +719,6 @@ public:
 
     myBinaryTree<K, T>& getLink() {
         return *this;
-    }
-
-    myIterator<K, T>& begin() {
-        return iterator.begin();
-    }
-
-    myIterator<K, T> end() {
-        return iterator.end();
     }
 };
 

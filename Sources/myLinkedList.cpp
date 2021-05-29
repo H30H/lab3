@@ -63,7 +63,7 @@ void myLinkedList<T>::insert(T item, int index) {
 
 template<class T>
 void myLinkedList<T>::set(T item, int index) {
-    (*this)[index] = item;
+    operator[](index) = item;
 }
 
 template<class T>
@@ -78,7 +78,6 @@ myLinkedList<T>::myLinkedList(T *items, int count) {
 
 template<class T>
 myLinkedList<T>::myLinkedList(myLinkedList<T> const &linkedList) {
-    len = linkedList.len;
     element *el = linkedList.head;
     while (el != nullptr) {
         append(el->data);
@@ -147,28 +146,37 @@ T myLinkedList<T>::pop(int index) {
     if (index < 0 || index >= len) throw IndexOutOfRange(len, index); //обработка ошибки
 
     element *el = head;
-    element *pref = nullptr;
+    element *prev = nullptr;
 
     T data;
 
-    for (int i = 0; i < index; i++, pref = el, el = el->next);
+    for (int i = 0; i < index; i++, prev = el, el = el->next);
 
     data = el->data;
 
-    if (pref == nullptr) {
-        head = el->next;
+    if (prev == nullptr) {
+        head = head->next;
+    }
+    else if (el == ending) {
+        prev->next = nullptr;
+        ending = prev;
     }
     else {
-        pref->next = el->next;
+        prev->next = el->next;
     }
     delete el;
     len--;
+    if (len == 0) {
+        head = nullptr;
+        ending = nullptr;
+    }
     return data;
 }
 
 template<class T>
 myLinkedList<T>::~myLinkedList() {
-    Delete();
+    if (len < 0)
+        Delete();
 }
 
 template<class T>

@@ -60,11 +60,11 @@ void testTreeInsert(int count, int debug) {
     myBinaryTree<int, int> binaryTree;
 
     for (i = 0; i < count/2; i++) {
-        binaryTree.insert(i*3, i);
+        binaryTree.insert(i, i*3);
         if (binaryTree.inTree(i))
             passed++;
     }
-    int max = i;
+    int max = i-1;
     for (; i < count; i++) {
         int key = getRandomInt(max);
         if (binaryTree.inTree(key))
@@ -108,7 +108,7 @@ void testTreeDelete(int count, int debug) {
     myBinaryTree<int, int> binaryTree;
     
     for (int i = 0; i < count/2; i++) {
-        binaryTree.insert(i*2, i);
+        binaryTree.insert(i, i*2);
     }
     
     for (int i = 0; i < count/2; i++) {
@@ -144,7 +144,7 @@ void testTreeFind(int count, int debug) {
         std::cout << "\tТестирование поиска элемента в дереве:\n";
     myBinaryTree<int, int> binaryTree;
     for (i = 0; i < count/2; i++) {
-        binaryTree.insert(i*k, i);
+        binaryTree.insert(i, i*k);
         if (binaryTree[i] == i*k)
             passed++;
     }
@@ -192,7 +192,7 @@ void testTreeReduce(int count, int debug) {
         for (int j = 0; j < maxSize; j++) {
             int val = getRandomInt(maxVal);
             sum += val;
-            binaryTree.insert(val, j);
+            binaryTree.insert(j, val);
         }
 
         int res = binaryTree.reduce(Summ, 0);
@@ -210,7 +210,7 @@ void testTreeFindSub(int count, int debug) {
     for (int i = 0; i < count; i++) {
         myBinaryTree<int, int> binaryTree;
         for (int j = 0; j < maxSize; j++) {
-            binaryTree.insert(getRandomInt(maxVal), j);
+            binaryTree.insert(j, getRandomInt(maxVal));
         }
 
         auto *subTree = binaryTree.getSubTree(getRandomInt(maxSize));

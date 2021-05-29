@@ -15,8 +15,8 @@ void printArr(myArraySequence<myBinaryTree<K, T>*> *arr) {
 }
 
 void mainMenuBinaryTree() {
-    myArraySequence<myBinaryTree<int, int>*>          arrInt;
-    myArraySequence<myBinaryTree<float, float>*>        arrFloat;
+    myArraySequence<myBinaryTree<int, int>*>     arrInt;
+    myArraySequence<myBinaryTree<float, float>*> arrFloat;
     int item;
     while(true) {
         cout << "Программа имеет следующие возможности: \n"
@@ -142,8 +142,7 @@ void readTypeBinaryTree(myArraySequence<myBinaryTree<K, T>*> *arr, int count) {
         default: break;
         case 0: readTypeBinaryTree<K, T>(arr, count); break;
         case 1:
-            auto *res = new myBinaryTree<K, T>(keys, elements);
-            arr->append(res);
+            arr->append(new myBinaryTree<K, T>(keys, elements));
             break;
     }
 }
@@ -169,8 +168,7 @@ void generateRandomBinaryTree(myArraySequence<myBinaryTree<K, T>*> *arr, int cou
             generateRandomBinaryTree(arr, count, funcK, funcT);
             break;
         case 1:
-            auto *res = new myBinaryTree<K, T>;
-            *res = binaryTree;
+            auto *res = new myBinaryTree<K, T>(keys, elements);
             arr->append(res);
             break;
     }

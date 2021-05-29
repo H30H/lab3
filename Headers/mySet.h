@@ -11,21 +11,21 @@
 template <class T>
 class mySet {
 private:
-    myBinaryTree<char, T> elements;
+    myBinaryTree<T, char> elements;
 public:
     class IsEmpty {};
 
     mySet() {
-        elements = myBinaryTree<char, T>();
+        elements = myBinaryTree<T, char>();
     }
 
     explicit mySet(T item) {
-        elements = myBinaryTree<char, T>();
+        elements = myBinaryTree<T, char>();
         elements.insert(item, 0);
     }
 
     mySet(T* items, int count) {
-        elements = myBinaryTree<char, T>();
+        elements = myBinaryTree<T, char>();
         for (int i = 0; i < count; i++) {
             elements.insert(items[i], 0);
         }
@@ -57,7 +57,7 @@ public:
         try {
             elements.remove(element);
         }
-        catch (typename myBinaryTree<char, T>::InvalidKeyword error) {
+        catch (typename myBinaryTree<T, char>::InvalidKeyword error) {
         }
     }
 
@@ -73,7 +73,7 @@ public:
             elements.find(element);
             return 1;
         }
-        catch (typename myBinaryTree<char, T>::InvalidKeyword error) {
+        catch (typename myBinaryTree<T, char>::InvalidKeyword error) {
             return 0;
         }
     }
