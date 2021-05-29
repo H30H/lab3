@@ -28,7 +28,7 @@ public:
         Node *left = nullptr;
         Node *right = nullptr;
 
-        Node& operator = (Node br) {
+        Node& operator = (const Node& br) {
             key = br.key;
             data = br.key;
             height = br.height;
@@ -110,7 +110,6 @@ public:
         myIterator(myBinaryTree<K, T> *tree) {
             binaryTree = tree;
             stack = new myStack<Node<K, T>*>;
-//            begin();
         }
 
         myIterator(myBinaryTree<K, T> *tree, myStack<Node<K, T>*>* Stack, Node<K, T> *elem) {
@@ -306,6 +305,31 @@ private:
         delete res2;
         return res1;
     }
+
+    ///Функция для поиска поддерева
+
+    int isSubTree(Node<K, T> *tree, Node<K, T> *subTree) {
+        if (tree == subTree)
+            return 1;
+
+        if (subTree == nullptr)
+            return 1;
+
+        if (tree == nullptr)
+            return 0;
+
+        if (tree->key != subTree->key || tree->data != subTree->data)
+            return 0;
+
+        if (!isSubTree(tree->left, subTree->left))
+            return 0;
+
+        if (!isSubTree(tree->right, subTree->right))
+            return 0;
+
+        return 1;
+    }
+
 public:
     myBinaryTree(): head(nullptr), iterator(myIterator<K, T>(this)) {}
 
@@ -339,8 +363,8 @@ public:
         auto min = len1 > len2 ? len2 : len1;
 
         for (int i = 0; i < min; i++) {
-            auto key = keys.get(i);
-            auto element = elements.get(i);
+            K key = keys.get(i);
+            T element = elements.get(i);
             insert(key, element);
         }
 
@@ -364,7 +388,7 @@ public:
         return myBinaryTree<K, T>(head->right).find(key);
     }
 
-    myBinaryTree<K, T>* insert(const K& key, const T& data) {
+    myBinaryTree<K, T>* insert(K key, T data) {
         if (head == nullptr) {
             head = new Node<K, T>;
             head->data = data;
@@ -684,7 +708,7 @@ public:
             return 0;
 
         if (head->key == binaryTree.head->key) {
-            return equal(binaryTree);
+            return isSubTree(head, binaryTree.head);
         }
 
         if (binaryTree.head->key < head->key) {

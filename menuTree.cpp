@@ -142,8 +142,7 @@ void readTypeBinaryTree(myArraySequence<myBinaryTree<K, T>*> *arr, int count) {
         default: break;
         case 0: readTypeBinaryTree<K, T>(arr, count); break;
         case 1:
-            auto *res = new myBinaryTree<K, T>;
-            *res = myBinaryTree<K, T>(keys, elements);
+            auto *res = new myBinaryTree<K, T>(keys, elements);
             arr->append(res);
             break;
     }
@@ -158,10 +157,11 @@ void generateRandomBinaryTree(myArraySequence<myBinaryTree<K, T>*> *arr, int cou
         elements.append(funcT());
     }
     myBinaryTree<K, T> binaryTree(keys, elements);
-    cout << "Сгенерировано \"" << binaryTree << "\". Записать или сгенерировать новое?\n"
-                                         "\t-1: выход\n"
-                                         "\t 0: сгенерировать новое\n"
-                                         "\t 1: записать дерево в память\n: ";
+    cout << "Сгенерировано:\n" << binaryTree.strLikeList() <<
+            "\nЗаписать или сгенерировать новое?\n"
+            "\t-1: выход\n"
+            "\t 0: сгенерировать новое\n"
+            "\t 1: записать дерево в память\n: ";
     int item = getInt(-1, 1);
     switch (item) {
         default: break;
@@ -169,7 +169,8 @@ void generateRandomBinaryTree(myArraySequence<myBinaryTree<K, T>*> *arr, int cou
             generateRandomBinaryTree(arr, count, funcK, funcT);
             break;
         case 1:
-            auto *res = new myBinaryTree<K, T>(keys, elements);
+            auto *res = new myBinaryTree<K, T>;
+            *res = binaryTree;
             arr->append(res);
             break;
     }
@@ -197,10 +198,11 @@ void operationTypeWithBinaryTree(myArraySequence<myBinaryTree<K, T>*> *arr) {
 
     while(true) {
         auto len = arr->length();
-        cout << "В памяти находится \"" << len << "\" деревьев, введите:\n"
-                                                  "\t- число меньше нуля для выхода\n"
-                                                  "\t- индекс дерева, для его выбора\n"
-                                                  "\t- число, больше чем число элементов, для вывода всем деревьев\n: ";
+        cout << "В памяти находится \"" << len <<
+                "\" деревьев, введите:\n"
+                "\t- число меньше нуля для выхода\n"
+                "\t- индекс дерева, для его выбора\n"
+                "\t- число, больше чем число элементов, для вывода всем деревьев\n: ";
 
         item = getInt();
         if (item < 0) break;
@@ -318,23 +320,46 @@ void printTypeBinaryTree(myArraySequence<myBinaryTree<K, T>*> *arr) {
     }
     int item;
     do {
-        cout << "В памяти находится \"" << arr->length() << "\" деревьев этого типа, введите:\n"
-                                                            "\t- Индекс элемента для его вывода в консоль\n"
-                                                            "\t- Число, больше чем количество деревьев для вывода всех"
-                                                            " деревьев этого типа\n"
-                                                            "\t- Число меньше нуля для выхода из функции\n:";
+        cout << "В памяти находится \"" << arr->length() <<
+                "\" деревьев этого типа, введите:\n"
+                "\t- Индекс элемента для его вывода в консоль\n"
+                "\t- Число, больше чем количество деревьев для вывода всех"
+                " деревьев этого типа\n"
+                "\t- Число меньше нуля для выхода из функции\n:";
         item = getInt();
 
         if (item < 0) break;
 
-        if (item < arr->length()) {
-            cout << item << ": " << *arr->get(item) << endl;
+        cout << "В каком формате необходимо вывести \"" << item << "\" дерево:\n"
+                "\t0: выбрать другое дерево\n"
+                "\t1: в формате произвольной строки\n"
+                "\t2: в виде дерева\n: ";
+
+        int item1 = getInt(0, 2);
+
+        if (item1 == 0)
+            continue;
+
+        if (item1 == 2) {
+            cout << arr->get(item)->strLikeList() << endl;
+            continue;
         }
 
-        if (item >= arr->length())
-            printArr(arr);
+        cout << "Введите строку в формате: ...\"L\"...\"K\"...\"R\". "
+                "(например {L}(K)[R], буквы можно менять местами)\n";
 
-        cout << endl;
+        string strFormat, strType;
+        cin >> strFormat;
+
+        cout << "Введите буквы \"K\" и \"D\" для вывода в строке ключа и значения соответственно"
+                "(можно обе буквы)\n";
+
+        cin >> strType;
+
+        cout << "\"" << item << "\" дерево:\n";
+
+        cout << arr->get(item)->getStr(strFormat, strType) << endl;
+
     } while (item >= 0);
 }
 
