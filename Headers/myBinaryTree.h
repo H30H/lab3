@@ -420,7 +420,8 @@ public:
             head->right = myBinaryTree<K, T>(head->right).insert(key, data)->head; //рекурсивное добавление в правое поддерево
         }
 
-        /* добавление произойдёт только тогда, когда при рекурсивном добавлении создастся пустое дерево (дерево с
+        /*
+         * добавление произойдёт только тогда, когда при рекурсивном добавлении создастся пустое дерево (дерево с
          * nullptr вершиной, такое возможно только тогда, когда у предка поле left или right == nullptr).
          * соответственно создастся новая вершина (первое условие этой функции), но чтобы эту вершину привязать к дереву
          * (у меня не храниться ссылка на предка), надо вернуть эту вершину и записать её в соответственное поле
@@ -442,39 +443,53 @@ public:
         return this;
     }
 
-    myBinaryTree<K, T>* remove(K key) {  //удаление пары ключ/значение (по ключу)
-        if (head == nullptr) throw myInvalidKeyword(key);
+    myBinaryTree<K, T>* remove(K key) {  //удаление пары ключ/значение (по ключу, рекурсивно)
+        if (head == nullptr) throw myInvalidKeyword(key);   //рекурсивно пришли в пустое поддерева -> ключ не найден
 
-        if (key != head->key) {
+        if (key != head->key) {   //рекурсивный вызов функции для левого или правого поддерева
             if (key < head->key)
-                head->left = myBinaryTree<K, T>(head->left).remove(key)->head;
+                head->left = myBinaryTree<K, T>(head->left).remove(key)->head;  //та же замена узлов, что и в добавлении
             else
                 head->right = myBinaryTree<K, T>(head->right).remove(key)->head;
-            head = head->balance();
+            head = head->balance();  //балансировка узла, после удаления (или не удаления) пары
             return this;
         }
 
-        if (head->left == nullptr && head->right == nullptr) {
-            delete head;
+        if (head->left == nullptr && head->right == nullptr) {  //нашли нужный узел, у которого нет поддеревьев,
+            delete head;                                        // обычное удаление
             head = nullptr;
             return this;
         }
 
-        if (head->left == nullptr && head->right != nullptr) {
-            myNode<K, T> *res = head->right;
+        if (head->left == nullptr && head->right != nullptr) {  //нашли нужный узел, у которого есть правый узел
+            myNode<K, T> *res = head->right;                    //заменяем начало дерева на правый узел и возвращаем его
             delete head;
             head = res;
             return this;
         }
 
-        if (head->left != nullptr && head->right == nullptr) {
-            myNode<K, T> *res = head->left;
+        if (head->left != nullptr && head->right == nullptr) {  //нашли нужный узел, у которого есть левый узел
+            myNode<K, T> *res = head->left;                     //то же самое, что в предыдущем, но для левого
             delete head;
             head = res;
             return this;
         }
 
-        if (head->left != nullptr && head->right != nullptr) {
+        if (head->left != nullptr && head->right != nullptr) {  //нашли нужный узел, у которого есть оба узла
+            /*
+             * так как дерево балансировочное, то необходимо удалить узел так, чтобы не нарушилась балансировка
+             * для этого:
+             * 1: ищем узел, у которого высота наибольшая (если одинаковые, то правый)
+             * 2: у данного узла:
+             *    2.1: если левый,  то ищем самый правый узел (идём только направо, пока не дойдём до nullptr),
+             *         запоминая все узлы, которые посетили (складываем в myStack<...> *stack)
+             *    2.2: если правый, то ищем самый левый  узел (идём только влево,   пока не дойдём до nullptr),
+             *         запоминая все узлы, которые посетили (складываем в myStack<...> *stack)
+             *    дальше запоминаем найденный узел, удаляяем его из дерево (условия до этого)
+             * 3: вставляем найденный узел на место узла, в котором сейчас находимся (узел с ключом K key)
+             * 4: выполняем балансировку для узлов, которые находятся в myStack<...> *stack
+             * 5: выполняем балансировку для данного узла дерева и возвращаем его
+             */
             auto h1 = head->left->height;
             auto h2 = head->right->height;
             if (h1 > h2) {
@@ -548,14 +563,14 @@ public:
         return this;
     }
 
-    std::string getStr(const std::string& str) const {
+    std::string getStr(const std::string& str) const {  //функция получения строки из строки произвольного обхода
         std::string typePrint("KD");
         return getStr(str, typePrint);
     }
 
     std::string getStr(const std::string& str, const std::string& typePrint) const {
-        int queue[] = {-1, -1, -1};
-        int key[3];
+        int queue[] = {-1, -1, -1};                   //функция получения строки из строки произвольного обхода
+        int key[3];                                   //с выбором данныйх (ключ, значения, оба вместе)
         int val = str.length() + 1;
         for (auto &i : key) {
             i = val;
@@ -569,11 +584,11 @@ public:
         return strSplit(queue, Start, First, Second, End, typePrint);
     }
 
-    std::string strLikeList() {
+    std::string strLikeList() {  //вывод дерева в виде списка (красивый вывод)
         return strLikeList(0, 0);
     }
 
-    std::string strLikeList(int count, int pol) {
+    std::string strLikeList(int count, int pol) {  //вывод дерева в виде списка с аргументами (красивый вывод)
         std::string res;
         for (int i = 0; i < count - (pol != 0) + count - 1; i++)
             res += ' ';
@@ -594,7 +609,7 @@ public:
         return res;
     }
 
-    myBinaryTree<K, T>& operator = (const myBinaryTree<K, T>& binaryTree) {
+    myBinaryTree<K, T>& operator = (const myBinaryTree<K, T>& binaryTree) {  //оператор присваивания
         Delete();
         //toOperatorEqual(binaryTree.head);
         if (binaryTree.head == nullptr)
@@ -615,7 +630,7 @@ public:
         return *this;
     }
 
-    int equal(const myBinaryTree<K, T>& binaryTree) {
+    int equal(const myBinaryTree<K, T>& binaryTree) {  //оператор сравнения деревьев (1, если полностью индентичны)
         if (head == binaryTree.head)
             return 1;
 
@@ -642,22 +657,19 @@ public:
         return !equal(binaryTree);
     }
 
-    T& operator [] (K key) {
-        if (head == nullptr) throw myInvalidKeyword(key);
+    T& operator [] (K key) {   //как find, но позволяем изменять значение по ключу
+        auto *res = findNode(key);
+        if (res == nullptr)
+            throw myInvalidKeyword(key);
 
-        if (head->key == key) return head->data;
-
-        if (key < head->key)
-            return myBinaryTree<K, T>(head->left)[key];
-
-        return myBinaryTree<K, T>(head->right)[key];
+        return res->data;
     }
 
-    myArraySequence<T>* getValues() const {
+    myArraySequence<T>* getValues() const {  //вызвращает массив значений дерева
         return getValues(head);
     }
 
-    myArraySequence<K>* getKeys() const {
+    myArraySequence<K>* getKeys() const {   //возвращает массив ключей дерева
         return getKeys(head);
     }
 
@@ -694,7 +706,7 @@ public:
         return res;
     }
 
-    myBinaryTree<K, T>* getSubTree(K key) {
+    myBinaryTree<K, T>* getSubTree(K key) {   //функция извлечение поддерева
         if (head == nullptr)
             return new myBinaryTree<K, T>;
 
@@ -710,42 +722,32 @@ public:
             return myBinaryTree<K, T>(head->left).getSubTree(key);
     }
 
-    int inTree(K key) {
-        auto* arr = getKeys();
-        int k = arr->find(key);
-        delete arr;
-        return k != -1;
+    int inTree(K key) {     //функция, проверяющая на вхождение ключа в дерево
+        return findNode(key) != nullptr;
     }
 
-    int inTree(const myBinaryTree<K, T>& binaryTree) {
-        if (binaryTree.head == nullptr)
+    int inTree(const myBinaryTree<K, T>& binaryTree) {  //функция, проверяющая на включение поддерева
+        if (binaryTree.head == nullptr)   //пустое дерево всегда поддерево
             return 1;
 
-        if (head == binaryTree.head)
-            return 1;
+        auto *node = findNode(binaryTree.head->key);  //поиск узла с нужным ключом
 
-        if (head == nullptr)
+        if (node == binaryTree.head)                  //если адрес узла совпадает с адресом начала дерева
+            return 1;                                 //то деревья равны (и искомое дерево являяется поддеревом)
+
+        if (node == nullptr)                          //нет узла с нужным ключом, значи нет искомого поддерева
             return 0;
 
-        if (head->key == binaryTree.head->key) {
-            return isSubTree(head, binaryTree.head);
-        }
-
-        if (binaryTree.head->key < head->key) {
-            return myBinaryTree<K, T>(head->left).inTree(binaryTree);
-        }
-        else {
-            return myBinaryTree<K, T>(head->right).inTree(binaryTree);
-        }
+        return isSubTree(node, binaryTree.head);     //проверка на поддерево
     }
 
-    myBinaryTree<K, T>& getLink() {
+    myBinaryTree<K, T>& getLink() {                  //получение ссылки на дерево (хз зачем, но вроде где-то юзается)
         return *this;
     }
 };
 
 template <class K, class T>
-std::ostream& operator << (std::ostream& cout, const myBinaryTree<K, T> &binaryTree) {
+std::ostream& operator << (std::ostream& cout, const myBinaryTree<K, T> &binaryTree) {  //переопределение cout <<
     std::string format("{L}[K](R)");
     return std::cout << binaryTree.getStr(format, std::string("K"));
 }
