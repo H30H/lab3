@@ -56,10 +56,6 @@ myArraySequence.h
 ../Headers/myLinkedList.h
 /cygdrive/c/cc++ labs/lab3/Headers/myLinkedList.h
 
-/cygdrive/c/cc++ labs/lab3/Sources/mySet.cpp
-../Headers/mySet.h
-/cygdrive/c/cc++ labs/lab3/Headers/mySet.h
-
 /cygdrive/c/cc++ labs/lab3/funcForMenu.h
 iostream
 /cygdrive/c/cc++ labs/lab3/iostream
@@ -67,22 +63,10 @@ random
 /cygdrive/c/cc++ labs/lab3/random
 
 /cygdrive/c/cc++ labs/lab3/main.cpp
-Headers/myBinaryTree.h
-/cygdrive/c/cc++ labs/lab3/Headers/myBinaryTree.h
-Headers/mySet.h
-/cygdrive/c/cc++ labs/lab3/Headers/mySet.h
-tests/test.h
-/cygdrive/c/cc++ labs/lab3/tests/test.h
 iostream
 -
-ctime
--
-menuSet.h
-/cygdrive/c/cc++ labs/lab3/menuSet.h
 menuTree.h
 /cygdrive/c/cc++ labs/lab3/menuTree.h
-
-/cygdrive/c/cc++ labs/lab3/menuSet.cpp
 menuSet.h
 /cygdrive/c/cc++ labs/lab3/menuSet.h
 
@@ -98,10 +82,6 @@ Headers/mySet.h
 funcForMenu.h
 /cygdrive/c/cc++ labs/lab3/funcForMenu.h
 
-/cygdrive/c/cc++ labs/lab3/menuTree.cpp
-menuTree.h
-/cygdrive/c/cc++ labs/lab3/menuTree.h
-
 /cygdrive/c/cc++ labs/lab3/menuTree.h
 complex
 -
@@ -113,14 +93,6 @@ Headers/mySet.h
 /cygdrive/c/cc++ labs/lab3/Headers/mySet.h
 funcForMenu.h
 /cygdrive/c/cc++ labs/lab3/funcForMenu.h
-
-/cygdrive/c/cc++ labs/lab3/tests/test.cpp
-test.h
-/cygdrive/c/cc++ labs/lab3/tests/test.h
-iostream
-/cygdrive/c/cc++ labs/lab3/tests/iostream
-random
-/cygdrive/c/cc++ labs/lab3/tests/random
 
 /cygdrive/c/cc++ labs/lab3/tests/test.h
 ctime

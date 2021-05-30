@@ -116,12 +116,12 @@ void testTreeDelete(int count, int debug) {
             binaryTree.remove(i);
             passed++;
         }
-        catch (myBinaryTree<int, int>::InvalidKeyword error){}
+        catch (myBinaryTree<int, int>::myInvalidKeyword error){}
 
         try {
             binaryTree.remove(i);
         }
-        catch (myBinaryTree<int, int>::InvalidKeyword error) {
+        catch (myBinaryTree<int, int>::myInvalidKeyword error) {
             passed++;
         }
     }
@@ -130,7 +130,7 @@ void testTreeDelete(int count, int debug) {
         try {
             binaryTree.remove(8);
         }
-        catch (myBinaryTree<int, int>::InvalidKeyword error) {
+        catch (myBinaryTree<int, int>::myInvalidKeyword error) {
             passed++;
         }
     }

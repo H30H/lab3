@@ -57,7 +57,7 @@ public:
         try {
             elements.remove(element);
         }
-        catch (typename myBinaryTree<T, char>::InvalidKeyword error) {
+        catch (typename myBinaryTree<T, char>::myInvalidKeyword error) {
         }
     }
 
@@ -73,7 +73,7 @@ public:
             elements.find(element);
             return 1;
         }
-        catch (typename myBinaryTree<T, char>::InvalidKeyword error) {
+        catch (typename myBinaryTree<T, char>::myInvalidKeyword error) {
             return 0;
         }
     }
@@ -140,7 +140,7 @@ public:
     }
 
     std::string getStr() const {
-        return std::string("{") + elements.getStr("LK, R", "K") + std::string("\b\b}");
+        return std::string("{") + elements.getStr("LK, R", "K") + std::string("\b\b}"); //TODO убрать \b\b
     }
 
     mySet<T> join(const mySet<T>& set) {

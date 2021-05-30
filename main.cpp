@@ -1,11 +1,6 @@
-#include "Headers/myBinaryTree.h"
-#include "Headers/mySet.h"
-#include "tests/test.h"
-
 #include <iostream>
-#include <ctime>
-#include "menuSet.h"
 #include "menuTree.h"
+#include "menuSet.h"
 
 using namespace std;
 int main() {
@@ -41,6 +36,7 @@ int main() {
 
     return 0;
 */
+
     while (true) {
         cout << "Введите номер для выбора режима работы меню:\n"
                 "\t0: для выхода из программы\n"
@@ -62,4 +58,5 @@ int main() {
 
     }
     return 0;
+
 }

@@ -275,7 +275,7 @@ void operationTypeWithBinaryTree(myArraySequence<myBinaryTree<K, T>*> *arr) {
                         BinaryTree1->remove(key);
                         cout << "Данный ключ был удалён!\n";
                     }
-                    catch(typename myBinaryTree<K, T>::InvalidKeyword error) {
+                    catch(typename myBinaryTree<K, T>::myInvalidKeyword error) {
                         cout << "Узла с таким ключом нет в дереве!\n";
                     }
                 case 3:
@@ -285,7 +285,7 @@ void operationTypeWithBinaryTree(myArraySequence<myBinaryTree<K, T>*> *arr) {
                         element = BinaryTree1->operator[](key);
                         cout << "По ключу \"" << key << "\" храниться \"" << element << "\".\n";
                     }
-                    catch(typename myBinaryTree<K, T>::InvalidKeyword error) {
+                    catch(typename myBinaryTree<K, T>::myInvalidKeyword error) {
                         cout << "Узла с таким ключом нет в дереве!\n";
                     }
             }

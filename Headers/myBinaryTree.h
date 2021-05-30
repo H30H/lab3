@@ -16,21 +16,21 @@ class myBinaryTree {
 public:
     using K = Key;
     using T = Data;
-    using typeHeight = long int;
+    using typeHeight = int;
 
     template<class K, class T>
-    class Node {
+    class myNode {  //Класс узла дерева
     public:
-        K key;
-        T data;
-        typeHeight height = 1;
+        K key;                       //ключ узла
+        T data;                      //данные узла
+        typeHeight height = 1;       //высота узла (для балансировки)
 
-        Node *left = nullptr;
-        Node *right = nullptr;
+        myNode *left = nullptr;      //укакзатель на левый узел
+        myNode *right = nullptr;     //указатель на правый узел
 
-        Node(K key1, T data1): key(key1), data(data1) {}
+        myNode(K key1, T data1): key(key1), data(data1) {}  //конструктор
 
-        Node& operator = (const Node& br) {
+        myNode& operator = (const myNode& br) {             //операция присваивания
             key = br.key;
             data = br.key;
             height = br.height;
@@ -41,20 +41,20 @@ public:
             return *this;
         }
 
-        typeHeight getDelta() {
+        typeHeight getHeightDelta() {                      //функция для нахождения разности высот (для балансировки)
             auto h1 = left == nullptr ? 0 : left->height;
             auto h2 = right == nullptr ? 0 : right->height;
             return h2 - h1;
         }
 
-        void updateHeight() {
+        void updateHeight() {                              //функция обновления высоты (для балансировки)
             auto h1 = left == nullptr ? 0 : left->height;
             auto h2 = right == nullptr ? 0 : right->height;
             height = (h1 > h2 ? h1 : h2) + 1;
         }
 
-        Node* rotateLeft() {
-            Node *res = right;
+        myNode* rotateLeft() {                             //малый левый поворот (для балансировки)
+            myNode *res = right;
             right = res->left;
             res->left = this;
             updateHeight();
@@ -63,8 +63,8 @@ public:
             return res;
         }
 
-        Node* rotateRight() {
-            Node *res = left;
+        myNode* rotateRight() {                            //малый правый поворот (для балансировки)
+            myNode *res = left;
             left = res->right;
             res->right = this;
             updateHeight();
@@ -73,16 +73,16 @@ public:
             return res;
         }
 
-        Node* balance() {
-            updateHeight();
-            auto delta = getDelta();
+        myNode* balance() {                                //функция балансировки узла (для балансировки, очевидно)
+            updateHeight();                                //возращает узел, который должен стоять на месте исходного
+            auto delta = getHeightDelta();                 //TODO лучше бы переделать, чтоб было красивее
             if (delta < -1) {
-                if (left != nullptr && left->getDelta() > 0)
+                if (left != nullptr && left->getHeightDelta() > 0)
                     left = left->rotateLeft();
                 return rotateRight();
             }
             if (delta > 1) {
-                if (right != nullptr && right->getDelta() < 0)
+                if (right != nullptr && right->getHeightDelta() < 0)
                     right = right->rotateRight();
                 return rotateLeft();
             }
@@ -90,39 +90,37 @@ public:
         }
     };
 
-    class InvalidKeyword{
+    class myInvalidKeyword{                               //класс ошибки ключа (такого ключа нет в дереве)
     public:
         K key;
-        explicit InvalidKeyword(K key): key(key) {}
+        explicit myInvalidKeyword(K key): key(key) {}
     };
 
-    class IsEmpty{
-
-    };
+    class myIsEmpty{};                                    //класс ошибки пустоты (пустое дерево)
 
     template<class K, class T>
-    class myIterator {
+    class myIterator {                                    //класс итератора (полный п**дец)
     private:
         myBinaryTree<K, T> *binaryTree = nullptr;
-        myStack<Node<K, T>*> *stack = nullptr;
-        Node<K, T> *now = nullptr;
+        myStack<myNode<K, T>*> *stack = nullptr;
+        myNode<K, T> *now = nullptr;
     public:
-        myIterator(): stack(new myStack<Node<K, T>*>) {}
+        myIterator(): stack(new myStack<myNode<K, T>*>) {}
 
         myIterator(myBinaryTree<K, T> *tree) {
             binaryTree = tree;
-            stack = new myStack<Node<K, T>*>;
+            stack = new myStack<myNode<K, T>*>;
         }
 
-        myIterator(myBinaryTree<K, T> *tree, myStack<Node<K, T>*>* Stack, Node<K, T> *elem) {
+        myIterator(myBinaryTree<K, T> *tree, myStack<myNode<K, T>*>* Stack, myNode<K, T> *elem) {
             binaryTree = tree;
-            stack = new myStack<Node<K, T>*>(Stack);
+            stack = new myStack<myNode<K, T>*>(Stack);
             now = elem;
         }
 
         myIterator(const myIterator<K, T>& iter) {
             binaryTree = iter.binaryTree;
-            stack = new myStack<Node<K, T>*>(iter.stack);
+            stack = new myStack<myNode<K, T>*>(iter.stack);
             now = iter.now;
         }
 
@@ -147,7 +145,7 @@ public:
         }
 
         myIterator<K, T> end() {
-            return myIterator<K, T>(binaryTree, new myStack<Node<K, T>*>, nullptr);
+            return myIterator<K, T>(binaryTree, new myStack<myNode<K, T>*>, nullptr);
         }
 
         myIterator<K, T>& operator++() {
@@ -184,18 +182,18 @@ public:
     };
     /**/
 private:
-    Node<K, T> *head;
-    short int _isCopy_ = 0;
+    myNode<K, T> *head;             //указатель на вершину (начало) дерева
+    short int _isCopy_ = 0;         //переменная, говорящая о том, является ли дерево копией (нужно для деконструктора)
 
     ///Функции для работы преобразования в строку
 
     std::string strFromQueue(int* queue, int num, const std::string &Start, const std::string &First,
                              const std::string &Second, const std::string &End, const std::string &typePrint) const {
-        int ind1 = 0, ind2 = 0;
+        int ind1 = 0, ind2 = 0;     //функция, которая получает строку для узла
         switch (queue[num]) {
             default: return std::string();
             case 0:
-                return myBinaryTree<K, T>(head->left).strSplited(queue, Start, First, Second, End, typePrint);
+                return myBinaryTree<K, T>(head->left).strSplit(queue, Start, First, Second, End, typePrint);
 
             case 1:
                 ind1 = (int) typePrint.find('K');
@@ -214,14 +212,14 @@ private:
                     return std::string("\"") + std::to_string(head->key) + ", " + std::to_string(head->data) + "\"";
 
             case 2:
-                return myBinaryTree<K, T>(head->right).strSplited(queue, Start, First, Second, End, typePrint);
+                return myBinaryTree<K, T>(head->right).strSplit(queue, Start, First, Second, End, typePrint);
         }
         return std::string();
     }
 
-    std::string strSplited(int* queue, const std::string &Start, const std::string &First,
-                           const std::string &Second, const std::string &End, const std::string &typePrint) const {
-        if (head == nullptr) {
+    std::string strSplit(int* queue, const std::string &Start, const std::string &First,
+                         const std::string &Second, const std::string &End, const std::string &typePrint) const {
+        if (head == nullptr) {      //функция, которая создаёт строку для дерева (рекурсивно)
             return std::string();
         }
 
@@ -238,8 +236,8 @@ private:
 
     void strGetKeys(const std::string &str, int* queue, int* key, std::string* keys,
                     std::string &Start, std::string &First, std::string &Second, std::string &End) const {
-        key[0] = (int) str.find(keys[0]);
-        key[1] = (int) str.find(keys[1]);
+        key[0] = (int) str.find(keys[0]);  //функция, которая определяет правило обхода (порядок букв ЛКП)
+        key[1] = (int) str.find(keys[1]);  //и разделяет исходную строку
         key[2] = (int) str.find(keys[2]);
 
         if (key[0] > str.length() || key[1] > str.length() || key[2] > str.length())
@@ -277,7 +275,7 @@ private:
 
     ///Функции для работы получение ключей и значений в дереве
 
-    myArraySequence<T>* getValues(Node<K, T>* node) const {
+    myArraySequence<T>* getValues(myNode<K, T>* node) const {  //рекурсивная функция, которая извлекает все значения дерева
         if (!node) {
             return new myArraySequence<T>;
         }
@@ -292,7 +290,7 @@ private:
         return res1;
     }
 
-    myArraySequence<K>* getKeys(Node<K, T>* node) const {
+    myArraySequence<K>* getKeys(myNode<K, T>* node) const {  //рекурсивная функция, которая извлекает все ключи дерева
         if (!node) {
             return new myArraySequence<K>;
         }
@@ -309,7 +307,7 @@ private:
 
     ///Функция для поиска поддерева
 
-    int isSubTree(Node<K, T> *tree, Node<K, T> *subTree) {
+    int isSubTree(myNode<K, T> *tree, myNode<K, T> *subTree) {  //рекурсивная функция для поиска поддерева
         if (tree == subTree)
             return 1;
 
@@ -331,33 +329,52 @@ private:
         return 1;
     }
 
+    ///Функция для поиска узла по ключу
+
+    myNode<K, T>* findNode(K key) {  //нерекурсивная функция поиска узла по ключу (nullptr, если такого ключа нет)
+        myNode<K, T> *res = head;
+        while (head != nullptr) {
+            if (res->key == key) {
+                break;
+            }
+            else if (res->key < key) {
+                res = res->left;
+            }
+            else {
+                res = res->right;
+            }
+        }
+
+        return res;
+    }
+
 public:
-    myBinaryTree(): head(nullptr) {}
+    myBinaryTree(): head(nullptr) {}  //конструктор
 
-    explicit myBinaryTree(Node<K, T> *element): head(element), _isCopy_(1) {}
+    explicit myBinaryTree(myNode<K, T> *element): head(element), _isCopy_(1) {}  //конструктор
 
-    void Delete() {
+    void Delete() {  //рекурсивная функция удаления
         if (head == nullptr)
             return;
 
         if (head->left != nullptr) {
-            myBinaryTree<K, T>(head->left).Delete();
+            myBinaryTree<K, T>(head->left).Delete();  //создаёт копию дерева из левого узла и удаляет его (рекурсивно)
         }
         if (head->right != nullptr) {
-            myBinaryTree<K, T>(head->right).Delete();
+            myBinaryTree<K, T>(head->right).Delete(); //создаёт копию дерева из правого узла и удаляет его (рекурсивно)
         }
         delete head;
         head = nullptr;
     }
 
-    myBinaryTree(const K& key, const T& data) {
-        auto *res = new Node<K, T>;
+    myBinaryTree(const K& key, const T& data) {  //конструктор
+        auto *res = new myNode<K, T>;
         res->key = key;
         res->data = data;
         head = res;
     }
 
-    myBinaryTree(const myArraySequence<K>& keys, const myArraySequence<T>& elements) {
+    myBinaryTree(const myArraySequence<K>& keys, const myArraySequence<T>& elements) {  //конструктор
         auto len1 = keys.length(), len2 = elements.length();
         head = nullptr;
         auto min = len1 > len2 ? len2 : len1;
@@ -370,46 +387,51 @@ public:
     }
     
 
-    ~myBinaryTree() {
-        if (!_isCopy_)
+    ~myBinaryTree() {  //деструктор
+        if (!_isCopy_) //не происходит удаления, если дерево является копией (будет п**да исходному)
             Delete();
     }
 
 
-    T find(K key) const {
-        if (head == nullptr) throw InvalidKeyword(key);
+    T find(K key) const {  //функция поиска значения по ключу (через поиск узла по ключу)
+        myNode<K, T> *res = findNode(key);
+        if (res == nullptr) {
+            throw myInvalidKeyword();
+        }
 
-        if (head->key == key) return head->data;
-
-        if (key < head->key)
-            return myBinaryTree<K, T>(head->left).find(key);
-
-        return myBinaryTree<K, T>(head->right).find(key);
+        return res->data;
     }
 
-    myBinaryTree<K, T>* insert(K key, T data) {
-        if (head == nullptr) {
-            head = new Node<K, T>(key, data);
+    myBinaryTree<K, T>* insert(K key, T data) {  //функция вставки пары ключ/значение
+        if (head == nullptr) {                   //вставка в самое начало, если дерево пустое
+            head = new myNode<K, T>(key, data);
             return this;
         }
 
-        if (key == head->key) {
+        if (key == head->key) {                  //замена значения по ключу, если такой ключ нашёлся
             head->data = data;
             return this;
         }
 
         if (key < head->key) {
-            head->left = myBinaryTree<K, T>(head->left).insert(key, data)->head;
+            head->left = myBinaryTree<K, T>(head->left).insert(key, data)->head; //рекурсивное добаление в левое поддерево
         }
         else {
-            head->right = myBinaryTree<K, T>(head->right).insert(key, data)->head;
+            head->right = myBinaryTree<K, T>(head->right).insert(key, data)->head; //рекурсивное добавление в правое поддерево
         }
 
-//        int leftVal = head->left == nullptr ? 0 : head->left->height;
-//        int rightVal = head->right == nullptr ? 0 : head->right->height;
-//        int maxVal = rightVal > leftVal ? rightVal : leftVal;
-        head->updateHeight();
-        int delta = head->getDelta();
+        /* добавление произойдёт только тогда, когда при рекурсивном добавлении создастся пустое дерево (дерево с
+         * nullptr вершиной, такое возможно только тогда, когда у предка поле left или right == nullptr).
+         * соответственно создастся новая вершина (первое условие этой функции), но чтобы эту вершину привязать к дереву
+         * (у меня не храниться ссылка на предка), надо вернуть эту вершину и записать её в соответственное поле
+         * поэтому когда мы вызываем функцию рекурсивно для левого поддерева, мы обновляем его (вдруг в него что-то добавиться)
+         *
+         * "левый узел"  = "поддерево, образованние из левого  узла"->"начало дерева"
+         * "правый узел" = "поддерево, образованние из правого узла"->"начало дерева"
+         */
+
+        head->updateHeight();                    //балансировка узла
+        int delta = head->getHeightDelta();
 
         if (delta <= 1 && delta >= -1) {
 //            head->height = maxVal + 1;
@@ -420,8 +442,8 @@ public:
         return this;
     }
 
-    myBinaryTree<K, T>* remove(K key) {
-        if (head == nullptr) throw InvalidKeyword(key);
+    myBinaryTree<K, T>* remove(K key) {  //удаление пары ключ/значение (по ключу)
+        if (head == nullptr) throw myInvalidKeyword(key);
 
         if (key != head->key) {
             if (key < head->key)
@@ -439,14 +461,14 @@ public:
         }
 
         if (head->left == nullptr && head->right != nullptr) {
-            Node<K, T> *res = head->right;
+            myNode<K, T> *res = head->right;
             delete head;
             head = res;
             return this;
         }
 
         if (head->left != nullptr && head->right == nullptr) {
-            Node<K, T> *res = head->left;
+            myNode<K, T> *res = head->left;
             delete head;
             head = res;
             return this;
@@ -456,8 +478,8 @@ public:
             auto h1 = head->left->height;
             auto h2 = head->right->height;
             if (h1 > h2) {
-                myStack<Node<K, T>*> stack;
-                Node<K, T> *br, *last = nullptr;
+                myStack<myNode<K, T>*> stack;
+                myNode<K, T> *br, *last = nullptr;
                 for (br = head->left; br->right != nullptr; br = br->right) {
                     if (last != nullptr)
                         stack.add(last);
@@ -476,7 +498,7 @@ public:
                 br->right = head->right;
                 delete head;
                 head = br;
-                Node<K, T> *thing = last;
+                myNode<K, T> *thing = last;
 
                 while (stack.length() != 0) {
                     thing = stack.get();
@@ -488,8 +510,8 @@ public:
                 head = head->balance();
             }
             else {
-                Node<K, T> *br, *last = nullptr;
-                myStack<Node<K, T>*> stack;
+                myNode<K, T> *br, *last = nullptr;
+                myStack<myNode<K, T>*> stack;
                 for (br = head->right; br->left != nullptr; br = br->left) {
                     if (last != nullptr)
                         stack.add(last);
@@ -509,7 +531,7 @@ public:
                 delete head;
                 head = br;
 
-                Node<K, T>* thing = last;
+                myNode<K, T>* thing = last;
                 while(stack.length() != 0) {
                     thing = stack.get();
                     thing->left = last->balance();
@@ -544,7 +566,7 @@ public:
 
         strGetKeys(str, queue, key, keys, Start, First, Second, End);
 
-        return strSplited(queue, Start, First, Second, End, typePrint);
+        return strSplit(queue, Start, First, Second, End, typePrint);
     }
 
     std::string strLikeList() {
@@ -578,7 +600,7 @@ public:
         if (binaryTree.head == nullptr)
             return *this;
 
-        myQueue<Node<K, T>*> queue(binaryTree.head);
+        myQueue<myNode<K, T>*> queue(binaryTree.head);
 
         while(queue.length() != 0) {
             auto *nodeRes = queue.get();
@@ -621,7 +643,7 @@ public:
     }
 
     T& operator [] (K key) {
-        if (head == nullptr) throw InvalidKeyword(key);
+        if (head == nullptr) throw myInvalidKeyword(key);
 
         if (head->key == key) return head->data;
 
