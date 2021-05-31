@@ -615,8 +615,10 @@ public:
         if (binaryTree.head == nullptr)
             return *this;
 
-        myQueue<myNode<K, T>*> queue(binaryTree.head);
-
+        myQueue<myNode<K, T>*> queue(binaryTree.head);  //создаём очередь узлов для обхода (начальныйй узел - вершина дерева)
+                                                        //так как дерево изначально сбалансировано, элементы добавляются
+                                                        //по уровням (вершина, дочерние узлы вершины, их дочерние узлы, и тд)
+                                                        //таким образом при добавлении не будет лишний раз вызываться балансировка
         while(queue.length() != 0) {
             auto *nodeRes = queue.get();
             insert(nodeRes->key, nodeRes->data);
@@ -657,7 +659,7 @@ public:
         return !equal(binaryTree);
     }
 
-    T& operator [] (K key) {   //как find, но позволяем изменять значение по ключу
+    T& operator [] (K key) {   //как find, но позволяем изменять значение по ключу (возвращает ссылку на значение)
         auto *res = findNode(key);
         if (res == nullptr)
             throw myInvalidKeyword(key);
@@ -673,8 +675,8 @@ public:
         return getKeys(head);
     }
 
-    void map(T (*f)()) {
-        if (!head)
+    void map(T (*f)()) {  //функция для изменения каждого значения дерева (применяется к каждому элементу дерева)
+        if (!head)        //типо "node->data = f();"
             return;
 
         head->data = f();
@@ -682,8 +684,8 @@ public:
         myBinaryTree<K, T>(head->right).map(f);
     }
 
-    void map(T (*f)(T value)) {
-        if (!head)
+    void map(T (*f)(T value)) { //функция для изменения каждого элемента дерева в зависимости от его исходного значения
+        if (!head)              //типо "node->data = f(node->data);"
             return;
 
         head->data = f(head->data);
@@ -691,11 +693,12 @@ public:
         myBinaryTree<K, T>(head->right).map(f);
     }
 
-    T reduce(T (*f)(T res, T value), T start) {
-        if (!head)
-            return start;
+    template<class U>
+    U reduce(U (*f)(U res, T value), U start) {  //функция для поэлементного применения к элементам дерева
+        if (!head)                               //с накоплением (типо "res = f(f...(f(start, a[0]), a[1])..., a[n])" )
+            return start;                        //или "res = f(start, a[0]); res = f(res, a[1]); ...; res = f(res, a[n]);
 
-        T res = start;
+        auto res = start;
 
         auto *data = getValues();
 
@@ -707,19 +710,9 @@ public:
     }
 
     myBinaryTree<K, T>* getSubTree(K key) {   //функция извлечение поддерева
-        if (head == nullptr)
-            return new myBinaryTree<K, T>;
-
-        if (head->key == key) {
-            auto *res = new myBinaryTree<K, T>;
-            *res = myBinaryTree<K, T>(head);
-            return res;
-        }
-
-        if (head->key < key)
-            return myBinaryTree<K, T>(head->right).getSubTree(key);
-        else
-            return myBinaryTree<K, T>(head->left).getSubTree(key);
+        auto res = new myBinaryTree<K, T>; //создаём новое дерево
+        res->operator=(myBinaryTree<K, T>(findNode(key))); //копируем данные из дерева, созданного от узла с ключом K key (если его нет, то узел == nullptr)
+        return res;
     }
 
     int inTree(K key) {     //функция, проверяющая на вхождение ключа в дерево
